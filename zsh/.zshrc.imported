@@ -1,0 +1,8 @@
+source `readlink -f .zshrc.path`
+source `readlink -f .zshrc.commands`
+source `readlink -f .zshrc.fzf`
+source `readlink -f .zshrc.ssh-agent`
+source `readlink -f .zshrc.theme`
+source `readlink -f .zshrc.aliases`
+
+[ -z $TMUX ] && { tmux attach -t main || tmux new-session -s main ; }

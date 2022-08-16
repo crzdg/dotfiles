@@ -1,0 +1,39 @@
+# browse git commits
+gbrowse() {
+  _gitLogLineToHash="echo {} | grep -o '[a-f0-9]\{7\}' | head -1 | tr -d '\n'"
+  _viewGitLogLine="$_gitLogLineToHash | xargs -I % sh -c 'git show --color=always %'"
+  git log --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr% C(auto)%an" "$@" |
+    fzf --no-sort --reverse --tiebreak=index --no-multi \
+    --ansi --preview="$_viewGitLogLine" \
+    --header "enter to view, alt-y to copy hash to tmux, alt-c to copy hash to clipboard" \
+    --bind "enter:execute:$_viewGitLogLine | less -R" \
+    --bind "alt-y:execute:$_gitLogLineToHash | tmux load-buffer -" \
+    --bind "alt-c:execute:$_gitLogLineToHash | xclip -i -sel c"
+}
+
+venv-install(){
+  [ ! -d venv ] && virtualenv venv
+  venv-update
+}
+venv-update(){
+  sed -i "s%/app%$(pwd)%g" requirements/*.txt
+  venv-update-nvim
+  venv/bin/pip install $(for file in requirements/*.txt; do echo "-r $file"; done)
+  venv/bin/pip install -e deps/*
+  [ -f setup.cfg ] && venv/bin/pip install -e .
+  sed -i "s%$(pwd)%/app%g" requirements/*.txt
+}
+
+venv-update-nvim() {
+    venv/bin/pip install pylint mypy isort
+    venv/bin/pip install python-lsp-server python-lsp-jsonrpc python-lsp-black pyls-isort pylsp-mypy pylsp-rope
+}
+
+venv-activate(){
+  [ -d venv ] || venv-install
+  source venv/bin/activate
+}
+
+lab-env(){
+    source /home/rb/dev/python/venvs/lab/bin/activate
+}
