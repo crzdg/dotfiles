@@ -48,15 +48,11 @@ lab-env(){
     source /home/rb/dev/python/venvs/lab/bin/activate
 }
 
-# FZF
-source ~/.fzf.completions.zsh
-source ~/.fzf.keybindings.zsh
-export FZF_COMPLETION_TRIGGER=','
-
 
 if type rg &> /dev/null; then
     export FZF_DEFAULT_COMMAND='rg --files --hidden || true'
 fi
+
 
 # SSH-AGENT
 . $HOME/dev/ssh-find-agent/ssh-find-agent.sh
@@ -126,6 +122,10 @@ SPACESHIP_PROMPT_ORDER=(
 plugins=()
 source $ZSH/oh-my-zsh.sh
 
+# FZF
+export FZF_COMPLETION_TRIGGER=','
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # ALIASES 
 alias fxrcf="bash $HOME/config/fix-resolv-conf.sh"
 alias cat="batcat -pp"
