@@ -134,5 +134,9 @@ alias dsedi="openvpn-gui.exe --command disconnect DESWS-0009"
 alias luamake=/home/rb/dev/lua-language-server/3rd/luamake/luamake
 alias ll="ls -lah"
 
+# Make completion
+zstyle ':completion::complete:make:*:targets' call-command true
+
+
 # STARTUP
 [ -z $TMUX ] && { tmux attach -t main || tmux new-session -s main ; }
