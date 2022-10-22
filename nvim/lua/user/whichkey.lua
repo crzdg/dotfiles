@@ -79,7 +79,7 @@ local opts = {
 }
 
 local mappings = {
-  ["e"] = { "<cmd>:Sex<cr>", "Explorer" },
+  ["e"] = { "<cmd>:NvimTreeToggle<cr>", "Explorer" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },

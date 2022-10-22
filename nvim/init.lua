@@ -25,6 +25,7 @@ require "user.lsp"
 
 -- Utils
 require "user.fzf-lua"
+require "user.nvim-tree"
 require "user.autopairs"
 require "user.project"
 require "user.impatient"

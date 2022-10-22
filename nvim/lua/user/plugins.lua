@@ -55,7 +55,6 @@ packer.init {
 -- use "luisiacc/gruvbox-baby"
 -- use "nvim-telescope/telescope.nvim"
 -- use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
---[[ use "kyazdani42/nvim-tree.lua" ]]
 
 -- Install your plugins here
 return packer.startup(function(use)
@@ -67,6 +66,7 @@ return packer.startup(function(use)
   use "moll/vim-bbye"
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "kyazdani42/nvim-web-devicons"
+  use "kyazdani42/nvim-tree.lua"
 
   -- Workspace handling
   use "folke/which-key.nvim"
