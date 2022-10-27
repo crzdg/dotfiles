@@ -1,14 +1,13 @@
-vim.cmd [[
-try
-  let g:gruvbox_baby_background_color = "dark"
-  let g:gruvbox_baby_transparent_mode = 1
-  let g:gruvbox_baby_function_style = "bold"
-  let g:gruvbox_baby_comment_style = "NONE"
-  let g:gruvbox_baby_keyword_style = "NONE"
-  let g:gruvbox_baby_highlights = {"Search" :{ "bg" :"#DEDEDE", "fg" :"#242424" }}
-  colo gruvbox-baby
-catch /^vim\%((\a\+)\)\=:e185/
-  colorscheme default
-  set background=dark
-endtry
-]]
+vim.g.gruvbox_baby_background_color = "dark"
+vim.g.gruvbox_baby_transparent_mode = 1
+vim.g.gruvbox_baby_function_style = "bold"
+vim.g.gruvbox_baby_comment_style = "NONE"
+vim.g.gruvbox_baby_keyword_style = "NONE"
+local colors = require("gruvbox-baby.colors").config()
+vim.g.gruvbox_baby_highlights = {
+    Search = { bg = colors.gray, fg = colors.background },
+    InactiveWindow = { bg = colors.dark }
+}
+
+
+vim.cmd[[colorscheme gruvbox-baby]]
