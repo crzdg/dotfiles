@@ -18,13 +18,20 @@ nvim_tree.setup {
     mappings = {
       list = {
         { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
-        { key = "h", cb = tree_cb "close_node" },
-        { key = "s", cb = tree_cb "vsplit" },
-        { key = "v", cb = tree_cb "hsplit" },
+        { key = "<C-h>", cb = tree_cb "close_node" },
+        { key = "<C-s>", cb = tree_cb "vsplit" },
+        { key = "<C-v>", cb = tree_cb "hsplit" },
       },
     },
     number = true,
     relativenumber = true,
+  },
+  actions = {
+    open_file = {
+        window_picker = {
+          enable = false
+      }
+    },
   },
 }
 

@@ -71,6 +71,7 @@ return packer.startup(function(use)
   -- Workspace handling
   use "folke/which-key.nvim"
   use "ahmedkhalf/project.nvim"
+  use "alexghergh/nvim-tmux-navigation"
 
   -- Coding / Document handling
   use "kylechui/nvim-surround"
@@ -89,6 +90,7 @@ return packer.startup(function(use)
   use "nvim-lualine/lualine.nvim"
   use "akinsho/bufferline.nvim"
   use "lukas-reineke/indent-blankline.nvim"
+  use "levouh/tint.nvim"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin

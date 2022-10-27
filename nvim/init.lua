@@ -17,7 +17,7 @@ require "user.treesitter"
 require "user.comment"
 require "user.gitsigns"
 require "user.trouble"
-require "lsp_signature".setup({ hint_prefix="", doc_lines=0 })
+require "user.lsp_signature_config"
 
 -- LSP
 require "user.lspsaga"
@@ -31,6 +31,10 @@ require "user.project"
 require "user.impatient"
 require "user.autocommands"
 require "user.surround"
+require "user.nvim-tmux-navigation"
+
+-- Load tint in the end to cache all highlights
+require "user.tint"
 
 -- archive
 -- require "user.alpha"

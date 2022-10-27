@@ -199,6 +199,11 @@ _G.packer_plugins = {
     path = "/home/rb/.local/share/nvim/site/pack/packer/start/nvim-surround",
     url = "https://github.com/kylechui/nvim-surround"
   },
+  ["nvim-tmux-navigation"] = {
+    loaded = true,
+    path = "/home/rb/.local/share/nvim/site/pack/packer/start/nvim-tmux-navigation",
+    url = "https://github.com/alexghergh/nvim-tmux-navigation"
+  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/home/rb/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
@@ -243,6 +248,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/rb/.local/share/nvim/site/pack/packer/start/project.nvim",
     url = "https://github.com/ahmedkhalf/project.nvim"
+  },
+  ["tint.nvim"] = {
+    loaded = true,
+    path = "/home/rb/.local/share/nvim/site/pack/packer/start/tint.nvim",
+    url = "https://github.com/levouh/tint.nvim"
   },
   ["trouble.nvim"] = {
     loaded = true,
