@@ -6,7 +6,6 @@ vim.g.gruvbox_baby_keyword_style = "NONE"
 local colors = require("gruvbox-baby.colors").config()
 vim.g.gruvbox_baby_highlights = {
     Search = { bg = colors.gray, fg = colors.background },
-    InactiveWindow = { bg = colors.dark }
 }
 
 
