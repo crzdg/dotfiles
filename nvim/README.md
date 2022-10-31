@@ -18,6 +18,11 @@ cd ../..
 ./3rd/luamake/luamake rebuild
 ```
 
+## Install bash-language-server
+```bash
+sudo npm i -g bash-language-server
+```
+
 ## Install neovim (nvim)
 
 https://github.com/neovim/neovim

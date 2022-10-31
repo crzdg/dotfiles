@@ -10,6 +10,7 @@ require("user.lsp.settings.pylsp")
 require("user.lsp.settings.jsonls")
 require("user.lsp.settings.sumneko_lua")
 require("lspconfig").yamlls.setup{}
+require("user.lsp.settings.bashls")
 
 --[[ capabilities = vim.lsp.protocol.make_client_capabilities() ]]
 --[[ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities) ]]
