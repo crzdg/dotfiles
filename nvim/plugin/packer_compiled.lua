@@ -264,6 +264,11 @@ _G.packer_plugins = {
     path = "/home/rb/.local/share/nvim/site/pack/packer/start/vim-bbye",
     url = "https://github.com/moll/vim-bbye"
   },
+  ["vim-interestingwords"] = {
+    loaded = true,
+    path = "/home/rb/.local/share/nvim/site/pack/packer/start/vim-interestingwords",
+    url = "https://github.com/lfv89/vim-interestingwords"
+  },
   ["vim-test"] = {
     loaded = true,
     path = "/home/rb/.local/share/nvim/site/pack/packer/start/vim-test",

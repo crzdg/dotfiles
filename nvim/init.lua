@@ -32,6 +32,7 @@ require "user.impatient"
 require "user.autocommands"
 require "user.surround"
 require "user.nvim-tmux-navigation"
+require "user.interestingwords"
 
 -- Load tint in the end to cache all highlights
 require "user.tint"
