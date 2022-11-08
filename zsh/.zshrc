@@ -1,3 +1,7 @@
+# EDITOR
+export EDITOR=nvim
+export GIT_EDITOR="$EDITOR"
+
 # PATH
 export PATH="$PATH:$HOME/dev/balena-cli" # Add balena cl to path
 export PATH="$PATH:/usr/local/go/bin" # Ad go bin to bath
