@@ -32,7 +32,11 @@ https://github.com/neovim/neovim/wiki/Building-Neovim
 git clone https://github.com/neovim/neovim /home/rb/dev/neovim
 cd /home/rb/dev/neovim
 git checkout v0.7.2
+
+make distclean
+make deps
 make CMAKE_BUILD_TYPE=RelWithDebInfo
+
 sudo make install
 ```
 
