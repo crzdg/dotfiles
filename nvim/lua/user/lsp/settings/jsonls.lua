@@ -194,7 +194,7 @@ local opts = {
   },
 }
 
-capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 require("lspconfig").jsonls.setup{capabilities=capabilities, settings=opts.settings, setup=opts.setup}

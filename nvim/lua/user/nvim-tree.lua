@@ -14,7 +14,7 @@ local tree_cb = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup {
   view = {
-    width = 28,
+    width = 42,
     mappings = {
       list = {
         { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
@@ -25,6 +25,7 @@ nvim_tree.setup {
     },
     number = true,
     relativenumber = true,
+    adaptive_size = true,
   },
   actions = {
     open_file = {
