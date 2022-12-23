@@ -20,6 +20,22 @@ export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap 
 
 
 # COMMANDS
+
+_is_in_git_repo() {
+  git rev-parse HEAD > /dev/null 2>&1
+}
+
+_git_toplevel() {
+    git rev-parse --show-toplevel
+}
+
+_go_to_toplevel_if_git_dir () {
+    if _is_in_git_repo
+    then
+        cd $(_git_toplevel)
+    fi
+}
+
 gbrowse() {
   _gitLogLineToHash="echo {} | grep -o '[a-f0-9]\{7\}' | head -1 | tr -d '\n'"
   _viewGitLogLine="$_gitLogLineToHash | xargs -I % sh -c 'git show --color=always %'"
