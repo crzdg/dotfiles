@@ -202,6 +202,9 @@ SPACESHIP_PROMPT_ORDER=(
 plugins=()
 source $ZSH/oh-my-zsh.sh
 
+ZSH_CONFIG_DIR="$(dirname "$(readlink -f "$0")")"
+source $ZSH_CONFIG_DIR/zsh/projectx.zsh
+
 # FZF
 export FZF_COMPLETION_TRIGGER='**'
 
