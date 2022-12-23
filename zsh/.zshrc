@@ -49,26 +49,77 @@ gbrowse() {
 }
 
 venv-install(){
-  [ ! -d venv ] && virtualenv venv
-  venv-update
-}
-venv-update(){
-  sed -i "s%/app%$(pwd)%g" requirements/*.txt
-  venv-update-nvim
-  venv/bin/pip install $(for file in requirements/*.txt; do echo "-r $file"; done)
-  venv/bin/pip install -e deps/*
-  [ -f setup.cfg ] && venv/bin/pip install -e .
-  sed -i "s%$(pwd)%/app%g" requirements/*.txt
+    if _is_in_git_repo
+    then
+        cd $(_git_toplevel)
+        _venv-install
+        cd - > /dev/null
+        return 0
+    fi
+    _venv-install
 }
 
-venv-update-nvim() {
+_venv-install() {
+    [ ! -d venv ] && virtualenv venv
+    venv-update
+}
+
+venv-update (){
+    if [ -d venv ]
+    then
+        _venv-update
+        return 0
+    fi
+
+    if _is_in_git_repo
+    then
+        cd $(_git_toplevel)
+        _venv-update
+        cd - > /dev/null
+    fi
+}
+
+_venv-update(){
+    if [ -d venv ]
+    then
+        sed -i "s%/app%$(pwd)%g" requirements/*.txt
+        venv-update-nvim
+        venv/bin/pip install $(for file in requirements/*.txt; do echo "-r $file"; done)
+        venv/bin/pip install -e deps/*
+        [ -f setup.cfg ] && venv/bin/pip install -e .
+        sed -i "s%$(pwd)%/app%g" requirements/*.txt
+    fi
+}
+
+_venv-update-nvim() {
     venv/bin/pip install pylint mypy isort
     venv/bin/pip install python-lsp-server python-lsp-jsonrpc python-lsp-black pyls-isort pylsp-mypy pylsp-rope
 }
 
 venv-activate(){
-  [ -d venv ] || venv-install
-  source venv/bin/activate
+    # Activate the venv in the current dir if available
+    # Check if git dir, if so, try to activat on top level
+    if _venv-activate
+    then
+        return 0
+    fi
+
+    if _is_in_git_repo
+    then
+        cd $(_git_toplevel)
+        _venv-activate
+        cd - > /dev/null
+        return 0
+    fi
+}
+
+_venv-activate() {
+    if [ -d venv ]
+    then
+        source venv/bin/activate
+        return 0
+    fi
+    return 1
 }
 
 lab-env(){
