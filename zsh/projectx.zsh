@@ -29,24 +29,31 @@ _setup_tmux_project_or_switch () {
 
 _setup_tmux_project () {
     # Setup panes
-    echo $2
     tmux new-window -n "$1"
     tmux split-window -h
     tmux split-window -v
     # Resize panes
-    tmux resize-pane -t 1 -x 120
+    tmux resize-pane -t 1 -x 142
     # Run commands
-    COMMAND="${2}"
-    echo $COMMAND
-    tmux send-keys -t 1 C-z "cd ${2} && _go_to_toplevel_if_git_dir && venv-activate && nvim ." C-m
-    tmux send-keys -t 2 C-z "cd ${2} && _go_to_toplevel_if_git_dir && gbrowse" C-m
-    tmux send-keys -t 3 C-z "cd ${2}" C-m
+    local default_command
+    default_command="cd ${2} && _go_to_toplevel_if_git_dir && venv-activate && clear"
+    tmux send-keys -t 1 C-z "$default_command && nvim ." C-m
+    tmux send-keys -t 2 C-z "$default_command && _gb" C-m
+    tmux send-keys -t 3 C-z "$default_command" C-m
     # Focus to fist pane
     tmux select-pane -t 1
 }
 
 fzf-project-widget () {
-    _setup_tmux_project_or_switch $(find ~/git -maxdepth 1 -mindepth 1 | fzf --reverse --prompt "🐛 ") || true
+    _setup_tmux_project_or_switch $(find ~/git ~/git/sedimentum -type d -maxdepth 1 -mindepth 1 2> /dev/null | fzf -d / --with-nth=-1)
+    zle reset-prompt
+}
+
+fzf-window-selection () {
+    local window
+    window=$(tmux list-window | fzf -d " "  --with-nth=2 )
+    window=$( echo "$window" | cut -d":" -f1)
+    tmux select-window -t "$window"
 }
 
 zle     -N            fzf-project-widget 
