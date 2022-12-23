@@ -12,6 +12,13 @@ export PATH="$PATH:$HOME/dev/lua-language-server/bin" # Add lua language server 
 # Created by `pipx` on 2022-02-26 10:19:23
 export PATH="$PATH:$HOME/.local/bin"
 
+export FZF_DEFAULT_OPTS="--height 80% --layout=reverse --border --info=inline --prompt '> '
+    --color fg:${FOREGROUND},bg:${BG},hl:${BRIGHT_YELLOW},fg+:${FOREGROUND},bg+:${COMMENT},hl+:${BRIGHT_YELLOW}
+    --color info:${DARK_GREY},prompt:#bdae93,spinner:${BRIGHT_YELLOW},pointer:#83a598,marker:#fe8019,header:#665c54
+"
+export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
+
+
 # COMMANDS
 gbrowse() {
   _gitLogLineToHash="echo {} | grep -o '[a-f0-9]\{7\}' | head -1 | tr -d '\n'"
@@ -129,7 +136,7 @@ plugins=()
 source $ZSH/oh-my-zsh.sh
 
 # FZF
-export FZF_COMPLETION_TRIGGER=','
+export FZF_COMPLETION_TRIGGER='**'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # ALIASES 
