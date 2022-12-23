@@ -7,7 +7,7 @@ export PATH="$PATH:$HOME/dev/balena-cli" # Add balena cl to path
 export PATH="$PATH:/usr/local/go/bin" # Ad go bin to bath
 export PATH="$PATH:$HOME/dev/fzf/bin" # add fzf (fuzzy finder) to path
 export PATH="$PATH:$HOME/.yarn/bin" # Add user yarn global to path
-export PATH="$PATH:$HOME/dev/lua-language-server/bin"
+export PATH="$PATH:$HOME/dev/lua-language-server/bin" # Add lua language server to path
 
 # Created by `pipx` on 2022-02-26 10:19:23
 export PATH="$PATH:$HOME/.local/bin"
@@ -79,6 +79,9 @@ SPACESHIP_PROMPT_SEPARATE_LINE=false
 SPACESHIP_VENV_SYMBOL="🐍 "
 SPACESHIP_EXIT_CODE_SHOW=false
 SPACESHIP_USER_SUFFIX="[💫🐶] "
+SPACESHIP_ASYNC_SHOW=false
+
+# Right prompt order
 SPACESHIP_RPROMPT_ORDER=(
     # exit_code
     # exec_time
@@ -108,19 +111,18 @@ SPACESHIP_PROMPT_ORDER=(
   # gcloud        # Google Cloud Platform section
   venv          # virtualenv section
   # conda         # conda virtualenv section
-  # pyenv         # Pyenv section
+  # python         # Python section
   # dotnet        # .NET section
-  # ember         # Ember.js section
   # kubectl       # Kubectl context section
   # terraform     # Terraform workspace section
   # ibmcloud      # IBM Cloud section
   # exec_time     # Execution time
   line_sep      # Line break
   # battery       # Battery level and status
-  vi_mode       # Vi-mode indicator
   jobs          # Background jobs indicator
   exit_code     # Exit code section
   char          # Prompt character
+  async       # Async indicators
 )
 
 plugins=()
@@ -144,3 +146,7 @@ zstyle ':completion::complete:make:*:targets' call-command true
 
 # STARTUP
 [ -z $TMUX ] && { tmux attach -t main || tmux new-session -s main ; }
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
