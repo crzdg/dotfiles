@@ -83,7 +83,7 @@ _venv-update(){
     if [ -d venv ]
     then
         sed -i "s%/app%$(pwd)%g" requirements/*.txt
-        venv-update-nvim
+        _venv-update-nvim
         venv/bin/pip install $(for file in requirements/*.txt; do echo "-r $file"; done)
         venv/bin/pip install -e deps/*
         [ -f setup.cfg ] && venv/bin/pip install -e .
@@ -202,8 +202,8 @@ SPACESHIP_PROMPT_ORDER=(
 plugins=()
 source $ZSH/oh-my-zsh.sh
 
-ZSH_CONFIG_DIR="$(dirname "$(readlink -f "$0")")"
-source $ZSH_CONFIG_DIR/zsh/projectx.zsh
+ZSH_CONFIG_DIR="$(dirname "$(readlink ~/.zshrc)")"
+source $ZSH_CONFIG_DIR/projectx.zsh
 
 # FZF
 export FZF_COMPLETION_TRIGGER='**'

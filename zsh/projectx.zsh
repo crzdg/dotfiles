@@ -11,6 +11,10 @@ _parse_projects() {
  }
 
 _setup_tmux_project_or_switch () {
+    if [[ -z "$1" ]]
+    then
+        return 0
+    fi
     local dir_name
     dir_name=$(basename $1)
     local window
