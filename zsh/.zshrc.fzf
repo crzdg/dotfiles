@@ -1,8 +1,0 @@
-source ~/.fzf.completions.zsh
-source ~/.fzf.keybindings.zsh
-export FZF_COMPLETION_TRIGGER=','
-
-
-if type rg &> /dev/null; then
-    export FZF_DEFAULT_COMMAND='rg --files --hidden || true'
-fi

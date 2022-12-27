@@ -11,129 +11,27 @@ export PATH="$PATH:$HOME/dev/lua-language-server/bin" # Add lua language server 
 
 # Created by `pipx` on 2022-02-26 10:19:23
 export PATH="$PATH:$HOME/.local/bin"
+export ZSH="$HOME/.oh-my-zsh"
 
-export FZF_DEFAULT_OPTS="--height 80% --layout=reverse --border --info=inline --prompt '> '
-    --color fg:${FOREGROUND},bg:${BG},hl:${BRIGHT_YELLOW},fg+:${FOREGROUND},bg+:${COMMENT},hl+:${BRIGHT_YELLOW}
-    --color info:${DARK_GREY},prompt:#bdae93,spinner:${BRIGHT_YELLOW},pointer:#83a598,marker:#fe8019,header:#665c54
-"
-export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
+ZSH_CONFIG_DIR="$(dirname "$(readlink ~/.zshrc)")"
 
+# ALIASES
+source $ZSH_CONFIG_DIR/aliases.zsh
 
-# COMMANDS
+# FZF
+source $ZSH_CONFIG_DIR/fzf.zsh
 
-_is_in_git_repo() {
-  git rev-parse HEAD > /dev/null 2>&1
-}
+# ProjectX
+source $ZSH_CONFIG_DIR/projectx.zsh
 
-_git_toplevel() {
-    git rev-parse --show-toplevel
-}
+# Git
+source $ZSH_CONFIG_DIR/git.zsh
 
-_go_to_toplevel_if_git_dir () {
-    if _is_in_git_repo
-    then
-        cd $(_git_toplevel)
-    fi
-}
-
-gbrowse() {
-  _gitLogLineToHash="echo {} | grep -o '[a-f0-9]\{7\}' | head -1 | tr -d '\n'"
-  _viewGitLogLine="$_gitLogLineToHash | xargs -I % sh -c 'git show --color=always %'"
-  git log --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr% C(auto)%an" "$@" |
-    fzf --no-sort --reverse --tiebreak=index --no-multi \
-    --ansi --preview="$_viewGitLogLine" \
-    --header "enter to view, alt-y to copy hash to tmux, alt-c to copy hash to clipboard" \
-    --bind "enter:execute:$_viewGitLogLine | less -R" \
-    --bind "alt-y:execute:$_gitLogLineToHash | tmux load-buffer -" \
-    --bind "alt-c:execute:$_gitLogLineToHash | xclip -i -sel c"
-}
-
-venv-install(){
-    if _is_in_git_repo
-    then
-        cd $(_git_toplevel)
-        _venv-install
-        cd - > /dev/null
-        return 0
-    fi
-    _venv-install
-}
-
-_venv-install() {
-    [ ! -d venv ] && virtualenv venv
-    venv-update
-}
-
-venv-update (){
-    if [ -d venv ]
-    then
-        _venv-update
-        return 0
-    fi
-
-    if _is_in_git_repo
-    then
-        cd $(_git_toplevel)
-        _venv-update
-        cd - > /dev/null
-    fi
-}
-
-_venv-update(){
-    if [ -d venv ]
-    then
-        sed -i "s%/app%$(pwd)%g" requirements/*.txt
-        _venv-update-nvim
-        venv/bin/pip install $(for file in requirements/*.txt; do echo "-r $file"; done)
-        venv/bin/pip install -e deps/*
-        [ -f setup.cfg ] && venv/bin/pip install -e .
-        sed -i "s%$(pwd)%/app%g" requirements/*.txt
-    fi
-}
-
-_venv-update-nvim() {
-    venv/bin/pip install pylint mypy isort
-    venv/bin/pip install python-lsp-server python-lsp-jsonrpc python-lsp-black pyls-isort pylsp-mypy pylsp-rope
-}
-
-venv-activate(){
-    # Activate the venv in the current dir if available
-    # Check if git dir, if so, try to activat on top level
-    if _venv-activate
-    then
-        return 0
-    fi
-
-    if _is_in_git_repo
-    then
-        cd $(_git_toplevel)
-        _venv-activate
-        cd - > /dev/null
-        return 0
-    fi
-}
-
-_venv-activate() {
-    if [ -d venv ]
-    then
-        source venv/bin/activate
-        return 0
-    fi
-    return 1
-}
-
-lab-env(){
-    source /home/rb/dev/python/venvs/lab/bin/activate
-}
-
-
-if type rg &> /dev/null; then
-    export FZF_DEFAULT_COMMAND='rg --files --hidden || true'
-fi
-
+# VENV MANAGER
+source $ZSH_CONFIG_DIR/venvmgr.zsh
 
 # SSH-AGENT
-. $HOME/dev/ssh-find-agent/ssh-find-agent.sh
+source $HOME/dev/ssh-find-agent/ssh-find-agent.sh
 
 ssh_find_agent -a
 if [ -z "$SSH_AUTH_SOCK" ]
@@ -142,106 +40,19 @@ then
    ssh-add -l >/dev/null || alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
 fi
 
-# THEME
-export ZSH="$HOME/.oh-my-zsh"
-
+# ZSH
 ZSH_THEME="spaceship"
-SPACESHIP_USER_SHOW=always
-SPACESHIP_PROMPT_ADD_NEWLINE=false
-SPACESHIP_CHAR_SYMBOL="🏃 " 
-SPACESHIP_PROMPT_SEPARATE_LINE=false
-SPACESHIP_VENV_SYMBOL="🐍 "
-SPACESHIP_EXIT_CODE_SHOW=false
-SPACESHIP_USER_SUFFIX="[💫🐶] "
-SPACESHIP_ASYNC_SHOW=false
-
-# Right prompt order
-SPACESHIP_RPROMPT_ORDER=(
-    # exit_code
-    # exec_time
-    )
-SPACESHIP_PROMPT_ORDER=(
-  # time          # Time stamps section
-  user          # Username section
-  dir           # Current directory section
-  host          # Hostname section
-  git           # Git section (git_branch + git_status)
-  # hg            # Mercurial section (hg_branch  + hg_status)
-  package       # Package version
-  # gradle        # Gradle section
-  # maven         # Maven section
-  node          # Node.js section
-  # ruby          # Ruby section
-  # elixir        # Elixir section
-  # xcode         # Xcode section
-  # swift         # Swift section
-  golang        # Go section
-  # php           # PHP section
-  rust          # Rust section
-  # haskell       # Haskell Stack section
-  # julia         # Julia section
-  # docker        # Docker section
-  # aws           # Amazon Web Services section
-  # gcloud        # Google Cloud Platform section
-  venv          # virtualenv section
-  # conda         # conda virtualenv section
-  # python         # Python section
-  # dotnet        # .NET section
-  # kubectl       # Kubectl context section
-  # terraform     # Terraform workspace section
-  # ibmcloud      # IBM Cloud section
-  # exec_time     # Execution time
-  line_sep      # Line break
-  # battery       # Battery level and status
-  jobs          # Background jobs indicator
-  exit_code     # Exit code section
-  char          # Prompt character
-  async       # Async indicators
-)
-
+source $ZSH_CONFIG_DIR/spaceship_prompt.zsh
 plugins=()
 source $ZSH/oh-my-zsh.sh
-
-ZSH_CONFIG_DIR="$(dirname "$(readlink ~/.zshrc)")"
-source $ZSH_CONFIG_DIR/projectx.zsh
-
-# FZF
-export FZF_COMPLETION_TRIGGER='**'
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# ALIASES 
-alias fxrcf="bash $HOME/config/fix-resolv-conf.sh"
-alias cat="batcat -pp"
-alias csedi="openvpn-gui.exe --command silent_connection 1 && openvpn-gui.exe --command connect DESWS-0009"
-alias dsedi="openvpn-gui.exe --command disconnect DESWS-0009"
-alias luamake=/home/rb/dev/lua-language-server/3rd/luamake/luamake
-alias ll="ls -lah"
 
 # Make completion
 zstyle ':completion::complete:make:*:targets' call-command true
 
-_gh() {
-  _is_in_git_repo || return
-  git log --date=short --format="%C(green)%C(bold)%cd %C(auto)%h%d %s (%an)" --graph --color=always |
-    fzf --ansi --no-sort --reverse --multi --bind 'ctrl-s:toggle-sort' \
-    --header 'Press CTRL-S to toggle sort' \
-    --preview 'grep -o "[a-f0-9]\{7,\}" <<< {} | xargs git show --color=always' |
-    grep -o "[a-f0-9]\{7,\}"
-}
-
-_gb() {
-  _is_in_git_repo || return
-  git branch -a --color=always | grep -v '/HEAD\s' | sort |
-    fzf --height 100% --ansi --multi --tac --preview-window right:70% \
-    --preview 'git log --oneline --graph --date=short --color=always --pretty="format:%C(auto)%cd %h%d %s" $(sed s/^..// <<< {} | cut -d" " -f1)' \
-    --preview-window=down:28:wrap |
-    sed 's/^..//' | cut -d' ' -f1 |
-    sed 's#^remotes/##'
-}
-
-# STARTUP
-[ -z $TMUX ] && { tmux attach -t main || tmux new-session -s main ; }
-
+# NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# STARTUP
+[ -z $TMUX ] && { tmux attach -t main || tmux new-session -s main ; }
