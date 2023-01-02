@@ -10,5 +10,3 @@ export FZF_COMPLETION_TRIGGER='**'
 if type rg &> /dev/null; then
     export FZF_DEFAULT_COMMAND='rg --files --hidden || true'
 fi
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
