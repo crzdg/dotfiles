@@ -38,15 +38,37 @@ _setup_tmux_project () {
     local default_command
     default_command="cd ${2} && _go_to_toplevel_if_git_dir && venv-activate && clear"
     tmux send-keys -t 1 C-z "$default_command && nvim ." C-m
-    tmux send-keys -t 2 C-z "$default_command && _gb" C-m
-    tmux send-keys -t 3 C-z "$default_command" C-m
+    tmux send-keys -t 2 C-z "$default_command && git log" C-m
+    tmux send-keys -t 3 C-z "$default_command && git status" C-m
     # Focus to fist pane
     tmux select-pane -t 1
 }
 
 fzf-project-widget () {
-    _setup_tmux_project_or_switch $(find ~/git ~/git/sedimentum -type d -maxdepth 1 -mindepth 1 2> /dev/null | fzf -d / --with-nth=-1)
-    zle reset-prompt
+    _setup_tmux_project_or_switch $(find ~/git ~/git/sedimentum -type d -maxdepth 1 -mindepth 1 2> /dev/null | \
+        fzf -d / --with-nth=-1 \
+        --border-label "🐛" --prompt "Project> " \
+        --preview 'batcat --color=always {}/README.md 2> /dev/null || echo "No README.md found!"' --preview-label "README"
+    )
+}
+
+_setup_tmux_host_or_switch () {
+    if [[ -z "$1" ]]
+    then
+        return 0
+    fi
+    local window
+    window=$(tmux list-window | grep "$1" | head -1 | cut -d":" -f1)
+    if [[ ! -z "$window" ]]
+    then
+        tmux select-window -t "$window"
+    else
+        tmux new-window -n "$1" "ssh $1"
+    fi
+}
+
+fzf-step-widget () {
+    _setup_tmux_host_or_switch $(step ssh hosts | tail -n +2 | grep -v "\." |  fzf)
 }
 
 fzf-window-selection () {
@@ -55,8 +77,3 @@ fzf-window-selection () {
     window=$( echo "$window" | cut -d":" -f1)
     tmux select-window -t "$window"
 }
-
-zle     -N            fzf-project-widget 
-bindkey -M emacs '^P' fzf-project-widget 
-bindkey -M vicmd '^P' fzf-project-widget
-bindkey -M viins '^P' fzf-project-widget
