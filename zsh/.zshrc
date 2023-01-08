@@ -15,6 +15,8 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_CONFIG_DIR="$(dirname "$(readlink ~/.zshrc)")"
 
+# Theme (from gruvbox-baby)
+export $(cat ~/git/gruvbox-baby/extras/tmux/DARK.tmux | xargs)
 
 # FZF
 source $ZSH_CONFIG_DIR/fzf.zsh
