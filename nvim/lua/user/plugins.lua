@@ -127,6 +127,14 @@ return packer.startup(function(use)
   -- Utils
   use "lfv89/vim-interestingwords"
 
+  -- Jupyter Notebbok
+  --[[ use "GCBallesteros/jupytext.vim" ]]
+  use "hkupty/iron.nvim"
+  use "kana/vim-textobj-user"
+  use "kana/vim-textobj-line"
+  use "GCBallesteros/vim-textobj-hydrogen"
+  --[[ use { "dccsillag/magma-nvim", run = ":UpdateRemotePlugins" } ]]
+
   -- Nonesense
   use "Eandrju/cellular-automaton.nvim"
 

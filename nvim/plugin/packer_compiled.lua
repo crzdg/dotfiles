@@ -159,6 +159,11 @@ _G.packer_plugins = {
     path = "/home/rb/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
+  ["iron.nvim"] = {
+    loaded = true,
+    path = "/home/rb/.local/share/nvim/site/pack/packer/start/iron.nvim",
+    url = "https://github.com/hkupty/iron.nvim"
+  },
   ["lsp-colors.nvim"] = {
     loaded = true,
     path = "/home/rb/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim",
@@ -283,6 +288,21 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/rb/.local/share/nvim/site/pack/packer/start/vim-test",
     url = "https://github.com/vim-test/vim-test"
+  },
+  ["vim-textobj-hydrogen"] = {
+    loaded = true,
+    path = "/home/rb/.local/share/nvim/site/pack/packer/start/vim-textobj-hydrogen",
+    url = "https://github.com/GCBallesteros/vim-textobj-hydrogen"
+  },
+  ["vim-textobj-line"] = {
+    loaded = true,
+    path = "/home/rb/.local/share/nvim/site/pack/packer/start/vim-textobj-line",
+    url = "https://github.com/kana/vim-textobj-line"
+  },
+  ["vim-textobj-user"] = {
+    loaded = true,
+    path = "/home/rb/.local/share/nvim/site/pack/packer/start/vim-textobj-user",
+    url = "https://github.com/kana/vim-textobj-user"
   },
   ["which-key.nvim"] = {
     loaded = true,

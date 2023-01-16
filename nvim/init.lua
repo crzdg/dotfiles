@@ -34,6 +34,10 @@ require "user.surround"
 require "user.nvim-tmux-navigation"
 require "user.interestingwords"
 
+require "user.jupytext"
+require "user.iron"
+--[[ require "user.magma" ]]
+
 -- Load tint in the end to cache all highlights
 -- [[ require "user.colorful-winsep" ]]
 require "user.tint"
