@@ -11,7 +11,7 @@ _has_venv_folder() {
 }
 
 _protected-venv-call() {
-    if [ -d venv ]
+    if _has_venv_folder
     then
         $1
         return 0
@@ -49,15 +49,12 @@ venv-update (){
 }
 
 _venv-update(){
-    if [ -d venv ]
-    then
-        sed -i "s%/app%$(pwd)%g" requirements/*.txt
-        _venv-update-nvim
-        venv/bin/pip install $(for file in requirements/*.txt; do echo "-r $file"; done)
-        venv/bin/pip install -e deps/*
-        [ -f setup.cfg ] && venv/bin/pip install -e .
-        sed -i "s%$(pwd)%/app%g" requirements/*.txt
-    fi
+    sed -i "s%/app%$(pwd)%g" requirements/*.txt
+    venv/bin/pip install $(for file in requirements/*.txt; do echo "-r $file"; done)
+    venv/bin/pip install -e deps/*
+    [ -f setup.cfg ] && venv/bin/pip install -e .
+    sed -i "s%$(pwd)%/app%g" requirements/*.txt
+    _venv-update-nvim
 }
 
 venv-update-nvim() {
