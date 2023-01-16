@@ -1,6 +1,7 @@
 # EDITOR
 export EDITOR=nvim
 export GIT_EDITOR="$EDITOR"
+export TERM="xterm-256color"
 
 # PATH
 export PATH="$PATH:$HOME/dev/balena-cli" # Add balena cl to path
