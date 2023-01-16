@@ -28,15 +28,25 @@ _setup_tmux_project_or_switch () {
 }
 
 _setup_tmux_project () {
-    # Setup panes
     tmux new-window -n "$1"
+    # Run commands
+    local default_command
+    local default_command_1
+    local default_command_2
+    default_command_1="cd ${2} && _go_to_toplevel_if_git_dir"
+    default_command_2="venv-activate && clear"
+    default_command=" ${default_command_1} && ${default_command_2}"
+    ping -c1 google.ch > /dev/null
+    if [ $? -eq 0 ]
+    then
+        tmux send-keys -t 1 C-z "$default_command_1 && venv-bump-python && venv-update-nvim && eval 'echo \$HOST'" C-m
+        until tmux capture-pane -pJ -S-10 -t 1 | grep "$HOST" >/dev/null; do :; done
+    fi
+    # Setup panes
     tmux split-window -h
     tmux split-window -v
     # Resize panes
     tmux resize-pane -t 1 -x 142
-    # Run commands
-    local default_command
-    default_command="cd ${2} && _go_to_toplevel_if_git_dir && venv-activate && clear"
     tmux send-keys -t 1 C-z "$default_command && nvim ." C-m
     tmux send-keys -t 2 C-z "$default_command && git log" C-m
     tmux send-keys -t 3 C-z "$default_command && git status" C-m
@@ -68,7 +78,7 @@ _setup_tmux_host_or_switch () {
 }
 
 fzf-step-widget () {
-    _setup_tmux_host_or_switch $(step ssh hosts | tail -n +2 | grep -v "\." |  fzf)
+    _setup_tmux_host_or_switch $(step ssh hosts | tail -n +2 | grep -v "\." | fzf )
 }
 
 fzf-window-selection () {
