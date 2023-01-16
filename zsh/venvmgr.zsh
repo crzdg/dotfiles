@@ -2,6 +2,32 @@ lab-env(){
     source /home/rb/dev/python/venvs/lab/bin/activate
 }
 
+_has_venv_folder() {
+    if [ -d venv ]
+    then
+        return 0
+    fi
+    return 1
+}
+
+_protected-venv-call() {
+    if [ -d venv ]
+    then
+        $1
+        return 0
+    fi
+
+    if _is_in_git_repo
+    then
+        cd $(_git_toplevel)
+        if _has_venv_folder
+        then
+            $1
+        fi
+        cd - > /dev/null
+    fi
+}
+
 venv-install(){
     if _is_in_git_repo
     then
@@ -19,18 +45,7 @@ _venv-install() {
 }
 
 venv-update (){
-    if [ -d venv ]
-    then
-        _venv-update
-        return 0
-    fi
-
-    if _is_in_git_repo
-    then
-        cd $(_git_toplevel)
-        _venv-update
-        cd - > /dev/null
-    fi
+    _protected-venv-call _venv-update
 }
 
 _venv-update(){
@@ -45,52 +60,37 @@ _venv-update(){
     fi
 }
 
-_venv-update-nvim() {
-    venv/bin/pip install pylint mypy isort
-    venv/bin/pip install python-lsp-server python-lsp-jsonrpc python-lsp-black pyls-isort pylsp-mypy pylsp-rope
+venv-update-nvim() {
+    _protected-venv-call _venv-update-nvim
 }
 
-venv-activate(){
-    # Activate the venv in the current dir if available
-    # Check if git dir, if so, try to activat on top level
-    if _venv-activate
-    then
-        return 0
-    fi
+_venv-update-nvim() {
+    venv/bin/pip install -U pylint mypy isort
+    venv/bin/pip install -U python-lsp-server python-lsp-jsonrpc python-lsp-black pyls-isort pylsp-mypy pylsp-rope
+}
 
-    if _is_in_git_repo
+venv-bump-python() {
+    _protected-venv-call _venv-bump-python
+}
+
+_venv-bump-python() {
+    if venv/bin/pip &> /dev/null
     then
-        cd $(_git_toplevel)
-        _venv-activate
-        cd - > /dev/null
         return 0
     fi
+    echo "pip command failed"
+    echo "replacing venv with new"
+    echo "---------------------------------------------------"
+    rm -r venv
+    _venv-install
+}
+
+
+venv-activate(){
+    _protected-venv-call _venv-activate
 }
 
 _venv-activate() {
-    if [ -d venv ]
-    then
-        source venv/bin/activate
-        return 0
-    fi
-    return 1
-}
-
-_gh() {
-  _is_in_git_repo || return
-  git log --date=short --format="%C(green)%C(bold)%cd %C(auto)%h%d %s (%an)" --graph --color=always |
-    fzf --ansi --no-sort --reverse --multi --bind 'ctrl-s:toggle-sort' \
-    --header 'Press CTRL-S to toggle sort' \
-    --preview 'grep -o "[a-f0-9]\{7,\}" <<< {} | xargs git show --color=always' |
-    grep -o "[a-f0-9]\{7,\}"
-}
-
-_gb() {
-  _is_in_git_repo || return
-  git branch -a --color=always | grep -v '/HEAD\s' | sort |
-    fzf --height 100% --ansi --multi --tac --preview-window right:70% \
-    --preview 'git log --oneline --graph --date=short --color=always --pretty="format:%C(auto)%cd %h%d %s" $(sed s/^..// <<< {} | cut -d" " -f1)' \
-    --preview-window=down:28:wrap |
-    sed 's/^..//' | cut -d' ' -f1 |
-    sed 's#^remotes/##'
+    source venv/bin/activate
+    return 0
 }
