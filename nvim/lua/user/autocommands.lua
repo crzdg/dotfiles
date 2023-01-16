@@ -38,4 +38,9 @@ vim.cmd [[
     autocmd!
     autocmd BufWritePre *.json,*.jsonc lua vim.lsp.buf.formatting_sync()
   augroup end
+
+  " augroup _ipynb
+  "   autocmd!
+  "   autocmd BufNewFile,BufReadPre *.ipynb :setl filetype=jupyter-notebook
+  " augroup end
 ]]
