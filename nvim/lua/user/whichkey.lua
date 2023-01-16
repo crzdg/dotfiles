@@ -116,8 +116,9 @@ local mappings = {
   s = {
     name = "Search",
     b = { "<cmd>FzfLua buffers<cr>", "Find buffer"},
-    f = { "<cmd>FzfLua git_files<cr>", "Find files"},
+    f = { "<cmd>FzfLua git_files<cr>", "Find git-files"},
     F = { "<cmd>FzfLua live_grep<cr>", "Find text"},
+    t = { "<cmd>FzfLua files<cr>", "Find files in tree"},
   },
 
   u = {
