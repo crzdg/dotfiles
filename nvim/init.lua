@@ -35,6 +35,7 @@ require "user.nvim-tmux-navigation"
 require "user.interestingwords"
 
 -- Load tint in the end to cache all highlights
+-- [[ require "user.colorful-winsep" ]]
 require "user.tint"
 
 -- archive

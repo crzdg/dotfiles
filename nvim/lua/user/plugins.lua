@@ -91,6 +91,7 @@ return packer.startup(function(use)
   use "akinsho/bufferline.nvim"
   use "lukas-reineke/indent-blankline.nvim"
   use "levouh/tint.nvim"
+  use "nvim-zh/colorful-winsep.nvim"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
