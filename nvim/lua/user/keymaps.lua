@@ -62,3 +62,7 @@ keymap("n", "cl", "<cmd>Lspsaga show_line_diagnostics<CR>", {silent = true})
 keymap("n", "cn", "<cmd>Lspsaga diagnostic_jump_next<CR>", {silent = true})
 keymap("n", "cp", "<cmd>Lspsaga diagnostic_jump_prev<CR>", {silent = true})
 keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", {silent = true, noremap = true})
+
+
+-- Nonesense --
+keymap("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", opts)

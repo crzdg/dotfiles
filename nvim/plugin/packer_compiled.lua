@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/home/rb/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
+  ["cellular-automaton.nvim"] = {
+    loaded = true,
+    path = "/home/rb/.local/share/nvim/site/pack/packer/start/cellular-automaton.nvim",
+    url = "https://github.com/Eandrju/cellular-automaton.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/rb/.local/share/nvim/site/pack/packer/start/cmp-buffer",
