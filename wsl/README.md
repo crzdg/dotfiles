@@ -111,4 +111,8 @@ Install Docker Desktop for Windows and ensure usage of wsl2-engine.
 
 Download: https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe
 
+## Clipboard
+
+You can link the clipboard by either using the X11-method explained in this [video](https://www.youtube.com/watch?v=_MgrjgQqDcE).
+Or simply use [`win32yank.exe`](https://github.com/equalsraf/win32yank). [file in repo](wsl/win32yank).
 
