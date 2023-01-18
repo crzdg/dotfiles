@@ -51,20 +51,18 @@ vim.cmd [[set nu rnu]]
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
--- vim.cmd [[
---     let g:clipboard = {
---         \   'name': 'win32yank-wsl',
---         \   'copy': {
---         \       '+': 'win32yank.exe -i --crlf',
---         \       '*': 'win32yank.exe -i --crlf',
---         \   },
---         \   'paste': {
---         \       '+': 'win32yank.exe -o --lf',
---         \       '*': 'win32yank.exe -o --lf',
---         \   },
---         \   'cache_enabled': 0,
---         \ }
--- ]]
+vim.g.clipboard = {
+  name = "win32yank-wsl",
+  copy = {
+    ["+"] = "win32yank.exe -i --crlf",
+    ["*"] = "win32yank.exe -i --crlf"
+  },
+  paste = {
+    ["+"] = "win32yank.exe -o --crlf",
+    ["*"] = "win32yank.exe -o --crlf"
+  },
+  cache_enable = 0,
+}
 vim.g["python3_host_prog"] = "/home/rb/dev/python/venvs/nvim/bin/python3"
 vim.cmd [[
     set foldlevel=20
