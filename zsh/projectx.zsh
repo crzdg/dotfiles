@@ -88,7 +88,6 @@ fzf-window-selection () {
     tmux select-window -t "$window"
 }
 
-
 fzf-lpass-widget () {
     local entry
     entry=$(lpass ls -l --color=always | \
@@ -96,13 +95,18 @@ fzf-lpass-widget () {
         sed -e 's/^[ \t]*//' | \
         sed -r "s/[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2} //g" | \
         sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2};?)?)?[mGK]//g" | \
-        fzf --preview 'lpass show $(echo {} | \
+        # Just show the username in the preview for now
+        fzf --preview 'lpass show --username $(echo {} | \
                         grep -Eo "id:\ ([0-9])*" | \
-                        grep -Eo "[0-9]*") | \
-                        sed -r "s/(password.* |Password.* |pwd.* ).*/\1*****/gi" | \
-                        sed -r "s/(-----.*------).*(-----.*-----)/\1*******\2/gi" | \
-                        tail -n +2')
+                        grep -Eo "[0-9]*")')
+        # TODO: The preview below is not realy secure as it only hides passwords but not notes
+        # fzf --preview 'lpass show $(echo {} | \
+        #                 grep -Eo "id:\ ([0-9])*" | \
+        #                 grep -Eo "[0-9]*") | \
+        #                 sed -r "s/(password.* |Password.* |pwd.* ).*/\1*****/gi" | \
+        #                 sed -r "s/(-----.*------).*(-----.*-----)/\1*******\2/gi" | \
+        #                 tail -n +2')
     id=$(echo $entry | grep -Eo "id:\ ([0-9]*)" | grep -Eo "[0-9]*" )
-    lpass show --username $id
+    lpass show --password -c $id
 
 }
