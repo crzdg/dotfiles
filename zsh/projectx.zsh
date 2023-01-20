@@ -46,10 +46,10 @@ _setup_tmux_project () {
     tmux split-window -h
     tmux split-window -v
     # Resize panes
-    tmux resize-pane -t 1 -x 142
+    tmux resize-pane -t 1 -x 58%
     tmux send-keys -t 1 C-z "$default_command && nvim ." C-m
-    tmux send-keys -t 2 C-z "$default_command && git log" C-m
-    tmux send-keys -t 3 C-z "$default_command && git status" C-m
+    tmux send-keys -t 2 C-z "$default_command && git fetch && git log" C-m
+    tmux send-keys -t 3 C-z "$default_command && git fetch && git status" C-m
     # Focus to fist pane
     tmux select-pane -t 1
 }
