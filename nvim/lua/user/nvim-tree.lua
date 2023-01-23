@@ -27,6 +27,9 @@ nvim_tree.setup {
     relativenumber = true,
     adaptive_size = true,
   },
+  git = {
+    ignore = true,
+  },
   actions = {
     open_file = {
         window_picker = {

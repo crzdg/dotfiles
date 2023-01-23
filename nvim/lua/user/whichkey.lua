@@ -88,6 +88,7 @@ local mappings = {
   ["b"] = { "<cmd>FzfLua buffers<cr>", "Find buffer"},
   ["f"] = { "<cmd>FzfLua git_files<cr>", "Find files"},
   ["F"] = { "<cmd>FzfLua live_grep<cr>", "Find text"},
+  ["t"] = { "<cmd>FzfLua files<cr>", "Find files"},
   g = {
     name = "Git",
     b = { "<cmd>FzfLua git_bcommits<cr>", "Buffer commits" },
@@ -128,7 +129,7 @@ local mappings = {
     k = { "<cmd>FzfLua keymaps<cr>", "Keymaps" },
   },
 
-  t = {
+  T = {
     name = "TestSuite",
     f = {"<cmd>TestFile<cr>", "Run test of current file"},
     n = {"<cmd>TestNearest<cr>", "Run the nearest test"},
