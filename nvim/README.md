@@ -23,6 +23,11 @@ cd ../..
 sudo npm i -g bash-language-server
 ```
 
+## Install yaml-language-server
+```bash
+sudo npm i -g yaml-language-server
+```
+
 ## Install neovim (nvim)
 
 https://github.com/neovim/neovim
