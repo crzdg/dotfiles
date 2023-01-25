@@ -36,7 +36,7 @@ _setup_tmux_project () {
     default_command_1="cd ${2} && _go_to_toplevel_if_git_dir"
     default_command_2="venv-activate && clear"
     default_command=" ${default_command_1} && ${default_command_2}"
-    ping -c1 google.ch > /dev/null
+    ping -c1 8.8.8.8 > /dev/null
     if [ $? -eq 0 ]
     then
         tmux send-keys -t 1 C-z "$default_command_1 && venv-bump-python && venv-update-nvim && eval 'echo \$HOST'" C-m
