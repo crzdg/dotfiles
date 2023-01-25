@@ -22,6 +22,5 @@ saga.init_lsp_saga({
     rename_action_keys = {
         quit= "C-q",
     },
-    max_preview_lines = 120
  }
 )

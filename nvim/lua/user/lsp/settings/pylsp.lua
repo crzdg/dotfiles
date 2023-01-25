@@ -7,11 +7,17 @@ require 'lspconfig'.pylsp.setup{
             plugins = {
                 pylint = {
                     enabled = true,
-                    args = {"--rcfile", "./pylintrc"}
+                    args = {"--rcfile ./pylintrc"}
                 },
                 jedi_completion = {
                     fuzzy = true
-                }
+                },
+                pylsp_mypy = {
+                    enabled = true,
+                    live_mode = true,
+                    dmypy = false,
+                    overrides = {true, "--no-pretty", "--hide-error-context"},
+                },
             }
         }
     }
