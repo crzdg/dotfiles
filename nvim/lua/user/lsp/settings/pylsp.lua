@@ -7,7 +7,8 @@ require 'lspconfig'.pylsp.setup{
             plugins = {
                 pylint = {
                     enabled = true,
-                    args = {"--rcfile ./pylintrc"}
+                    args = {"--output-format=text"},
+                    executable = "pylint"
                 },
                 jedi_completion = {
                     fuzzy = true
