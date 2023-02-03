@@ -18,7 +18,7 @@ _setup_tmux_project_or_switch () {
     local dir_name
     dir_name=$(basename $1)
     local window
-    window=$(tmux list-window | grep "$dir_name" | head -1 | cut -d":" -f1)
+    window=$(tmux list-window | grep -E "[0-9]*: ${dir_name}[-\*#!~ZM]{0,7} \(" | head -1 | cut -d":" -f1)
     if [[ ! -z "$window" ]]
     then
         tmux select-window -t "$window"
@@ -68,7 +68,7 @@ _setup_tmux_host_or_switch () {
         return 0
     fi
     local window
-    window=$(tmux list-window | grep "$1" | head -1 | cut -d":" -f1)
+    window=$(tmux list-window | grep -E "[0-9]*: ${1}[-\*#!~ZM]{0,7} \(" | head -1 | cut -d":" -f1)
     if [[ ! -z "$window" ]]
     then
         tmux select-window -t "$window"
