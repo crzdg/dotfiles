@@ -8,7 +8,7 @@ require("user.lsp.handlers").setup()
 
 require("user.lsp.settings.pylsp")
 require("user.lsp.settings.jsonls")
-require("user.lsp.settings.sumneko_lua")
+require("user.lsp.settings.lua_ls")
 require("lspconfig").yamlls.setup{}
 require("user.lsp.settings.bashls")
 
