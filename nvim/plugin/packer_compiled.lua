@@ -149,6 +149,11 @@ _G.packer_plugins = {
     path = "/home/rb/.local/share/nvim/site/pack/packer/start/gruvbox-baby",
     url = "https://github.com/crzdg/gruvbox-baby"
   },
+  harpoon = {
+    loaded = true,
+    path = "/home/rb/.local/share/nvim/site/pack/packer/start/harpoon",
+    url = "https://github.com/ThePrimeagen/harpoon"
+  },
   ["impatient.nvim"] = {
     loaded = true,
     path = "/home/rb/.local/share/nvim/site/pack/packer/start/impatient.nvim",

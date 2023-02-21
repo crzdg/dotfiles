@@ -12,9 +12,8 @@ vim.cmd[[
     function! MyFloaterm(cmd)
         execute 'FloatermNew --autoclose=1 --width=0.9 --height=0.9 '.a:cmd
     endfunction
-    let g:test#custom_strategies = {"myfloaterm": function('MyFloaterm')}
     let g:test#basic#start_normal = 0
     let g:test#neovim#start_normal = 0
     let g:test#preserve_screen = 0
-    let g:test#strategy = "neovim"
+    let g:test#strategy = "harpoon"
 ]]

@@ -42,7 +42,6 @@ packer.init {
 -- Awesome Packages
 -- use "akinsho/toggleterm.nvim"
 -- use "goolord/alpha-nvim"
--- use "voldikss/vim-floaterm"
 
 -- Colorschemes
 -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
@@ -67,6 +66,7 @@ return packer.startup(function(use)
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
+  use "ThePrimeagen/harpoon"
 
   -- Workspace handling
   use "folke/which-key.nvim"
