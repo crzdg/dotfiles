@@ -5,3 +5,4 @@ alias csedi="openvpn-gui.exe --command silent_connection 1 && openvpn-gui.exe --
 alias dsedi="openvpn-gui.exe --command disconnect DESWS-0009"
 alias luamake=/home/rb/dev/lua-language-server/3rd/luamake/luamake
 alias ll="ls -lah"
+alias wudo="/usr/bin/python3 ~/dev/wsl-sudo/wsl-sudo.py"
