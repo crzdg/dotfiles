@@ -39,7 +39,7 @@ _setup_tmux_project () {
     ping -c1 8.8.8.8 > /dev/null
     if [ $? -eq 0 ]
     then
-        tmux send-keys -t 1 C-z "$default_command_1 && venv-bump-python && venv-update-nvim && eval 'echo \$HOST'" C-m
+        tmux send-keys -t 1 C-z "$default_command_1 && venv-bump-python && eval 'echo \$HOST'" C-m
         until tmux capture-pane -pJ -S-10 -t 1 | grep "$HOST" >/dev/null; do :; done
     fi
     # Setup panes
