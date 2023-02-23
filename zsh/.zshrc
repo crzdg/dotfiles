@@ -18,6 +18,12 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_CONFIG_DIR="$(dirname "$(readlink ~/.zshrc)")"
 
+case $NAME in
+    (moltres) source $ZSH_CONFIG_DIR/machines/moltres.zsh;;
+    (DESWS-0009) source $ZSH_CONFIG_DIR/machines/desws-0009.zsh;;
+    (*) source $ZSH_CONFIG_DIR/machines/default.zsh;;
+esac
+
 # ALIASES
 source $ZSH_CONFIG_DIR/aliases.zsh
 

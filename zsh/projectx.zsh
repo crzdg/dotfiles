@@ -54,8 +54,16 @@ _setup_tmux_project () {
     tmux select-pane -t 1
 }
 
+# host specific configuration
+case $NAME in
+    (moltres) PROJECTX_FOLDERS="~/git ~/mse-git ~/mse";;
+    (DESWS-0009) PROJECTX_FOLDERS="~/git ~/git/sedimentum";;
+    (*) PROJECTX_FOLDERS="~/git";;
+esac
+
 fzf-project-widget () {
-    _setup_tmux_project_or_switch $(find ~/git ~/git/sedimentum ~/mse ~/mse-git -type d -maxdepth 1 -mindepth 1 2> /dev/null | \
+    COMMAND="find $PROJECTX_FOLDERS -maxdepth 1 -mindepth 1 -type d"
+    _setup_tmux_project_or_switch $(eval $COMMAND 2> /dev/null | \
         fzf -d / --with-nth=-1 \
         --border-label "🐛" --prompt "Project> " \
         --preview 'batcat --color=always {}/README.md 2> /dev/null || echo "No README.md found!"' --preview-label "README"
