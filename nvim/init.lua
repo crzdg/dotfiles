@@ -1,6 +1,3 @@
--- require'py_lsp'.setup {
---     host_python = "/home/rb/dev/python/venvs/nvim/bin"
--- }
 require "user.options"
 require "user.keymaps"
 require "user.plugins"

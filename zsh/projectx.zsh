@@ -55,7 +55,7 @@ _setup_tmux_project () {
 }
 
 fzf-project-widget () {
-    _setup_tmux_project_or_switch $(find ~/git ~/git/sedimentum -type d -maxdepth 1 -mindepth 1 2> /dev/null | \
+    _setup_tmux_project_or_switch $(find ~/git ~/git/sedimentum ~/mse ~/mse-git -type d -maxdepth 1 -mindepth 1 2> /dev/null | \
         fzf -d / --with-nth=-1 \
         --border-label "🐛" --prompt "Project> " \
         --preview 'batcat --color=always {}/README.md 2> /dev/null || echo "No README.md found!"' --preview-label "README"

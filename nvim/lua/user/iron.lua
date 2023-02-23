@@ -9,7 +9,7 @@ iron.setup({
         format = require("iron.fts.common").bracketed_paste,
       },
     },
-    repl_open_cmd = require("iron.view").split("28%")
+    repl_open_cmd = require("iron.view").split.vertical("42%")
   },
   keymaps = {
     send_motion = "ctr",
