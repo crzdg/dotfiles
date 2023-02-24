@@ -20,6 +20,9 @@ require "user.lsp_signature_config"
 require "user.lspsaga"
 require "user.lsp"
 
+-- Obsidian
+require "user.obsidian"
+
 -- Utils
 require "user.fzf-lua"
 require "user.nvim-tree"

@@ -124,6 +124,9 @@ return packer.startup(function(use)
   use "junegunn/fzf" -- Fuzzy Finder
   use "ibhagwan/fzf-lua"
 
+  -- Obsidian
+  use "epwalsh/obsidian.nvim"
+
   -- Utils
   use "lfv89/vim-interestingwords"
 
