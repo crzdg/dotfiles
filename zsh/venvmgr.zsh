@@ -63,10 +63,10 @@ venv-update-nvim() {
 
 _venv-update-nvim() {
     # Install common dev tools
-    venv/bin/pip install -U pylint mypy isort
+    venv/bin/pip install -U pylint mypy isort ruff
 
     # Install packages needed for LSP
-    venv/bin/pip install -U python-lsp-server python-lsp-jsonrpc python-lsp-black pyls-isort pylsp-mypy pylsp-rope
+    venv/bin/pip install -U python-lsp-server python-lsp-jsonrpc python-lsp-black pyls-isort pylsp-mypy pylsp-rope python-lsp-ruff
 }
 
 venv-bump-python() {

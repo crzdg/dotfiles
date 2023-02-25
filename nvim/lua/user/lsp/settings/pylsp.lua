@@ -15,13 +15,12 @@ local function pylintrc()
 end
 
 local function mypy()
-    return exists(basepath .. "mypy.ini")
+    return exists(basepath .. "/mypy.ini")
 end
 
 local function ruff()
-    return exists(basepath .. "ruff.toml")
+    return exists(basepath .. "/ruff.toml")
 end
-
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
