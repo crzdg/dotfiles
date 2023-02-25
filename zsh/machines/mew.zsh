@@ -6,3 +6,5 @@ plugins=()
 # fnm
 export PATH="/home/rb/.local/share/fnm:$PATH"
 eval "`fnm env`"
+
+export TMUX_INDICATOR_COLOR="#ffadad"
