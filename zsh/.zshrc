@@ -4,13 +4,15 @@ export GIT_EDITOR="$EDITOR"
 export TERM="xterm-256color"
 
 # PATH
-export PATH="$PATH:$HOME/dev/balena-cli" # Add balena cl to path
-export PATH="$PATH:/usr/local/go/bin" # Ad go bin to bath
 export PATH="$PATH:$HOME/dev/fzf/bin" # add fzf (fuzzy finder) to path
-export PATH="$PATH:$HOME/.yarn/bin" # Add user yarn global to path
 export PATH="$PATH:$HOME/dev/lua-language-server/bin" # Add lua language server to path
 export PATH="$PATH:$HOME/dev/win32yank" # Add win32yank to path
 export LPASS_CLIPBOARD_COMMAND="win32yank.exe -i"
+
+# DEPRECATED / OPTIONAL
+export PATH="$PATH:$HOME/.yarn/bin" # Add user yarn global to path
+export PATH="$PATH:/usr/local/go/bin" # Ad go bin to bath
+export PATH="$PATH:$HOME/dev/balena-cli" # Add balena cl to path
 
 # Created by `pipx` on 2022-02-26 10:19:23
 export PATH="$PATH:$HOME/.local/bin"
