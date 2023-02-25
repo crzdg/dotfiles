@@ -20,12 +20,6 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_CONFIG_DIR="$(dirname "$(readlink ~/.zshrc)")"
 
-case $NAME in
-    (moltres) source $ZSH_CONFIG_DIR/machines/moltres.zsh;;
-    (DESWS-0009) source $ZSH_CONFIG_DIR/machines/desws-0009.zsh;;
-    (*) source $ZSH_CONFIG_DIR/machines/default.zsh;;
-esac
-
 # ALIASES
 source $ZSH_CONFIG_DIR/aliases.zsh
 
@@ -58,6 +52,14 @@ fi
 ZSH_THEME="spaceship"
 source $ZSH_CONFIG_DIR/spaceship_prompt.zsh
 plugins=()
+
+case $HOST in
+    moltres) source $ZSH_CONFIG_DIR/machines/moltres.zsh;;
+    DESWS-0009) source $ZSH_CONFIG_DIR/machines/desws-0009.zsh;;
+    mew) source $ZSH_CONFIG_DIR/machines/mew.zsh;;
+    *) source $ZSH_CONFIG_DIR/machines/default.zsh;;
+esac
+
 source $ZSH/oh-my-zsh.sh
 
 # Make completion
