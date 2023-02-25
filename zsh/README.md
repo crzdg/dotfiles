@@ -1,12 +1,13 @@
 # Setup zsh
 
 ## Install zsh
-https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH#install-and-set-up-zsh-as-default
 
 ```
 sudo apt install zsh
 chsh -s $(which zsh)
 ```
+
+https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH#install-and-set-up-zsh-as-default
 
 ### Install oh-my-zsh
 https://ohmyz.sh/#install
