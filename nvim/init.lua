@@ -36,6 +36,7 @@ require "user.interestingwords"
 
 require "user.jupytext"
 require "user.iron"
+require "user.peek"
 --[[ require "user.magma" ]]
 
 -- Load tint in the end to cache all highlights

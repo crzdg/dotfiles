@@ -51,6 +51,20 @@ sudo make install
 ln -sf /home/rb/git/dotfiles/nvim ~/.config/nvim
 ```
 
+## Optional Install peek for markdown preview
+
+Install deno
+
+```
+curl -fsSL https://deno.land/x/install/install.sh | sh
+```
+
+install libwebkit2gtk
+
+```
+sudo apt install libwebkit2gtk-4.0-37
+```
+
 ## Optional: Install tree-sitter 
 
 https://github.com/tree-sitter/tree-sitter/releases

@@ -130,6 +130,10 @@ return packer.startup(function(use)
   -- Utils
   use "lfv89/vim-interestingwords"
 
+  -- Markdown
+  --[[ use {"ellisonleao/glow.nvim"} ]]
+  use({ 'toppair/peek.nvim', run = 'deno task --quiet build:fast' })
+
   -- Jupyter Notebbok
   --[[ use "GCBallesteros/jupytext.vim" ]]
   use "hkupty/iron.nvim"
