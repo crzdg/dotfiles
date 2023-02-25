@@ -17,7 +17,6 @@ SPACESHIP_PROMPT_ORDER=(
   # time          # Time stamps section
   user          # Username section
   dir           # Current directory section
-  host          # Hostname section
   git           # Git section (git_branch + git_status)
   # hg            # Mercurial section (hg_branch  + hg_status)
   package       # Package version
@@ -48,6 +47,7 @@ SPACESHIP_PROMPT_ORDER=(
   # battery       # Battery level and status
   jobs          # Background jobs indicator
   exit_code     # Exit code section
+  host          # Hostname section
   char          # Prompt character
   async       # Async indicators
 )
