@@ -1,10 +1,9 @@
-# ZSH
-ZSH_THEME="spaceship"
-source $ZSH_CONFIG_DIR/prompts/spaceship_prompt_mew.zsh
-plugins=()
-
 # fnm
 export PATH="/home/rb/.local/share/fnm:$PATH"
 eval "`fnm env`"
 
-export TMUX_INDICATOR_COLOR="#ffadad"
+export HOST_INDICATOR_COLOR=$PINK
+HOST_EMOJI="🔮"
+HOST_USER_SUFFIX="🧙🦉"
+SPACESHIP_HOST_SHOW="false"
+SPACESHIP_VENV_SYMBOL="🔰 "

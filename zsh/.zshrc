@@ -53,7 +53,7 @@ fi
 
 # ZSH
 ZSH_THEME="spaceship"
-source $ZSH_CONFIG_DIR/prompts/spaceship_prompt_default.zsh
+source $ZSH_CONFIG_DIR/prompts/spaceship_prompt.zsh
 plugins=()
 
 case $HOST in
@@ -63,6 +63,9 @@ case $HOST in
     *) source $ZSH_CONFIG_DIR/machines/default.zsh;;
 esac
 
+SPACESHIP_CHAR_SYMBOL="$HOST_EMOJI "
+SPACESHIP_USER_SUFFIX="[$HOST_USER_SUFFIX] "
+SPACESHIP_USER_COLOR=$HOST_INDICATOR_COLOR
 source $ZSH/oh-my-zsh.sh
 
 # Make completion
