@@ -53,7 +53,7 @@ fi
 
 # ZSH
 ZSH_THEME="spaceship"
-source $ZSH_CONFIG_DIR/prompts/spaceship_prompt.zsh
+source $ZSH_CONFIG_DIR/spaceship_prompt.zsh
 plugins=()
 
 case $HOST in

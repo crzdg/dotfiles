@@ -5,7 +5,7 @@ alias dsedi="openvpn-gui.exe --command disconnect DESWS-0009"
 
 # export HOST_INDICATOR_COLOR="#732f37" # sedimentum magenta
 export HOST_INDICATOR_COLOR=$MAGENTA
-HOST_EMOJI="🪨"
-HOST_USER_SUFFIX="🦄🚀"
+HOST_EMOJI="🚀"
+HOST_USER_SUFFIX="🦄🪨"
 SPACESHIP_HOST_SHOW="false"
 SPACESHIP_VENV_SYMBOL="🌍 "
