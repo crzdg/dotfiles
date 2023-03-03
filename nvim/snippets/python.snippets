@@ -40,10 +40,13 @@ snippet test "add test method"
 
 
 # logging
-snippet glog "import and createlogger"
+snippet sglog "import and createlogger (Sedimentum)"
 		from sedimentum_utils.logging.logging import get_logger
 		logger = get_logger(__name__)
 
+snippet dglog "import and createlogger (default)"
+		import logging
+		logger = logging.getLogger(__name__)
 
 snippet li "log info"
 		logger.info("${0:msg}")
@@ -65,6 +68,11 @@ snippet np "numpy"
 snippet plt "matplotlib"
 		import matplotlib.pyplot as plt
 
+snippet nltk "natural language tool kit"
+		import nltk
+
+snippet torch "pytorch"
+		import torch as t
 
 # comprehensions
 snippet lcp "list comprehension"
