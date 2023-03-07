@@ -65,6 +65,12 @@ install libwebkit2gtk
 sudo apt install libwebkit2gtk-4.0-37
 ```
 
+create main.bundle.js
+
+```bash
+cd /home/rb/.local/share/nvim/site/pack/packer/start/peek.nvim && deno task build:debug
+```
+
 ## Optional: Install tree-sitter 
 
 https://github.com/tree-sitter/tree-sitter/releases
