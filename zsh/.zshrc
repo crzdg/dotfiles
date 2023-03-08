@@ -61,6 +61,7 @@ case $HOST in
     DESWS-0009) source $ZSH_CONFIG_DIR/machines/desws-0009.zsh;;
     mew) source $ZSH_CONFIG_DIR/machines/mew.zsh;;
     docker) source $ZSH_CONFIG_DIR/machines/docker.zsh;;
+    zapdos) source $ZSH_CONFIG_DIR/machines/zapdos.zsh;;
     *) source $ZSH_CONFIG_DIR/machines/default.zsh;;
 esac
 
