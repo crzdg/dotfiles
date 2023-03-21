@@ -97,6 +97,11 @@ fzf-window-selection () {
 }
 
 fzf-lpass-widget () {
+    if ! lpass status > /dev/null; then
+        read "lastpass_user?Username LASTPASS: "
+        lpass login --trust $lastpass_user
+        clear
+    fi
     local entry
     entry=$(lpass ls -l --color=always | \
         grep id: | \
