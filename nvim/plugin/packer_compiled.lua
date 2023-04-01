@@ -124,11 +124,6 @@ _G.packer_plugins = {
     path = "/home/rb/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["colorful-winsep.nvim"] = {
-    loaded = true,
-    path = "/home/rb/.local/share/nvim/site/pack/packer/start/colorful-winsep.nvim",
-    url = "https://github.com/nvim-zh/colorful-winsep.nvim"
-  },
   fzf = {
     loaded = true,
     path = "/home/rb/.local/share/nvim/site/pack/packer/start/fzf",
@@ -248,11 +243,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/rb/.local/share/nvim/site/pack/packer/start/nvim-yati",
     url = "https://github.com/yioneko/nvim-yati"
-  },
-  ["obsidian.nvim"] = {
-    loaded = true,
-    path = "/home/rb/.local/share/nvim/site/pack/packer/start/obsidian.nvim",
-    url = "https://github.com/epwalsh/obsidian.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,

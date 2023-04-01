@@ -42,6 +42,17 @@ packer.init {
 -- Awesome Packages
 -- use "akinsho/toggleterm.nvim"
 -- use "goolord/alpha-nvim"
+-- Markdown viewer
+-- use "ellisonleao/glow.nvim"
+-- Alternative to interesting words
+-- use "azabiong/vim-highlighter" -- Not working currentyl
+-- Jupytext Plugin
+-- use "GCBallesteros/jupytext.vim"
+-- Notebook/ipython handler -> does not support venvs
+-- use { "dccsillag/magma-nvim", run = ":UpdateRemotePlugins" }
+-- Obsidian
+--[[ use "epwalsh/obsidian.nvim" ]]
+
 
 -- Colorschemes
 -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
@@ -77,7 +88,6 @@ return packer.startup(function(use)
   use "kylechui/nvim-surround"
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "numToStr/Comment.nvim" -- Easily comment stuff
-  --[[ use "azabiong/vim-highlighter" -- Not working currentyl ]]
 
   -- Testing and Diagnostics
   use "vim-test/vim-test"
@@ -91,7 +101,7 @@ return packer.startup(function(use)
   use "akinsho/bufferline.nvim"
   use "lukas-reineke/indent-blankline.nvim"
   use "levouh/tint.nvim"
-  use "nvim-zh/colorful-winsep.nvim"
+  --[[ use "nvim-zh/colorful-winsep.nvim" ]]
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -124,23 +134,17 @@ return packer.startup(function(use)
   use "junegunn/fzf" -- Fuzzy Finder
   use "ibhagwan/fzf-lua"
 
-  -- Obsidian
-  use "epwalsh/obsidian.nvim"
-
   -- Utils
   use "lfv89/vim-interestingwords"
 
   -- Markdown
-  --[[ use {"ellisonleao/glow.nvim"} ]]
   use({ 'toppair/peek.nvim', run = 'deno task --quiet build:fast' })
 
   -- Jupyter Notebbok
-  --[[ use "GCBallesteros/jupytext.vim" ]]
   use "hkupty/iron.nvim"
   use "kana/vim-textobj-user"
   use "kana/vim-textobj-line"
   use "GCBallesteros/vim-textobj-hydrogen"
-  --[[ use { "dccsillag/magma-nvim", run = ":UpdateRemotePlugins" } ]]
 
   -- Nonesense
   use "Eandrju/cellular-automaton.nvim"

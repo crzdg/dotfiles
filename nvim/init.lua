@@ -20,9 +20,6 @@ require "user.lsp_signature_config"
 require "user.lspsaga"
 require "user.lsp"
 
--- Obsidian
-require "user.obsidian"
-
 -- Utils
 require "user.fzf-lua"
 require "user.nvim-tree"
@@ -37,10 +34,8 @@ require "user.interestingwords"
 require "user.jupytext"
 require "user.iron"
 require "user.peek"
---[[ require "user.magma" ]]
 
 -- Load tint in the end to cache all highlights
--- [[ require "user.colorful-winsep" ]]
 require "user.tint"
 
 -- archive
@@ -48,4 +43,7 @@ require "user.tint"
 -- require "user.toggleterm"
 -- require "user.nvim-tree"
 -- require "user.telescope"
+-- require "user.obsidian"
+-- require "user.colorful-winsep"
+-- require "user.glow"
 

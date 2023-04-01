@@ -1,5 +1,5 @@
 require("obsidian").setup({
-  dir = "~/git/obsidian2",
+  dir = "~/git/obsidian",
   completion = {
     nvim_cmp = true, -- if using nvim-cmp, otherwise set to false
   },
