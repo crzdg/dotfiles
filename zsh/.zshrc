@@ -3,6 +3,11 @@ export EDITOR=nvim
 export GIT_EDITOR="$EDITOR"
 export TERM="xterm-256color"
 
+# LANGUAGE
+export LC_ALL=C.UTF-8
+export LC_CTYPE=C.UTF-8
+export LANG=C.UTF-8
+
 # PATH
 export PATH="$PATH:$HOME/dev/fzf/bin" # add fzf (fuzzy finder) to path
 export PATH="$PATH:$HOME/dev/lua-language-server/bin" # Add lua language server to path
