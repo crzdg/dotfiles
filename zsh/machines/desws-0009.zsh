@@ -9,3 +9,5 @@ HOST_EMOJI="🚀"
 HOST_USER_SUFFIX="🦄🪨"
 SPACESHIP_HOST_SHOW="false"
 SPACESHIP_VENV_SYMBOL="🌍 "
+
+PROJECTX_FOLDERS="~/git ~/git/sedimentum"

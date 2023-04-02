@@ -1,7 +1,3 @@
-_open_project_in_tmux() { 
-    echo "Hello"
- }
-
 _parse_projects() { 
     ll ~/git | grep ^d | rev | cut -d" " -f1 | rev
  }
@@ -27,20 +23,52 @@ _setup_tmux_project_or_switch () {
     fi
 }
 
+_has_internet_connection () {
+    ping -c1 8.8.8.8 > /dev/null
+    if [ $? -eq 0 ]
+    then
+        return 0
+    return 1
+    fi
+}
+
+_wants_internet_required () {
+    if [[ "$PROJECTX_INTERNET_CHECKS" -eq 1 ]]
+    then
+        return 0
+    fi
+    return 1
+}
+
+_run_internet_required () {
+    if _has_internet_connection
+    then
+        if [[ "$PROJECTX_BUMP_PYTHON" -eq 1 ]]
+        then
+            tmux send-keys -t 1 C-z "$1 && venv-bump-python && eval 'echo \$HOST'" C-m
+            until tmux capture-pane -pJ -S-10 -t 1 | grep "$HOST" >/dev/null; do :; done
+        fi
+
+        if [[ "$PROJECTX_GIT_FETCH" -eq 1 ]]
+        then
+            default_command="${default_command} && git fetch"
+        fi
+    fi
+}
+
+
+
 _setup_tmux_project () {
     tmux new-window -n "$1"
     # Run commands
-    local default_command
     local default_command_1
     local default_command_2
     default_command_1="cd ${2} && _go_to_toplevel_if_git_dir"
     default_command_2="venv-activate && clear"
     default_command=" ${default_command_1} && ${default_command_2}"
-    ping -c1 8.8.8.8 > /dev/null
-    if [ $? -eq 0 ]
+    if _wants_internet_required
     then
-        tmux send-keys -t 1 C-z "$default_command_1 && venv-bump-python && eval 'echo \$HOST'" C-m
-        until tmux capture-pane -pJ -S-10 -t 1 | grep "$HOST" >/dev/null; do :; done
+        _run_internet_required
     fi
     # Setup panes
     tmux split-window -h
@@ -48,18 +76,11 @@ _setup_tmux_project () {
     # Resize panes
     tmux resize-pane -t 1 -x 58%
     tmux send-keys -t 1 C-z "$default_command && nvim ." C-m
-    tmux send-keys -t 2 C-z "$default_command && git fetch && git log" C-m
-    tmux send-keys -t 3 C-z "$default_command && git fetch && git status" C-m
+    tmux send-keys -t 2 C-z "$default_command && git log" C-m
+    tmux send-keys -t 3 C-z "$default_command && git status" C-m
     # Focus to fist pane
     tmux select-pane -t 1
 }
-
-# host specific configuration
-case $NAME in
-    (moltres) PROJECTX_FOLDERS="~/git ~/mse-git ~/mse";;
-    (DESWS-0009) PROJECTX_FOLDERS="~/git ~/git/sedimentum";;
-    (*) PROJECTX_FOLDERS="~/git";;
-esac
 
 fzf-project-widget () {
     COMMAND="find $PROJECTX_FOLDERS -maxdepth 1 -mindepth 1 -type d"
