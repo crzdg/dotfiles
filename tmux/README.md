@@ -1,4 +1,4 @@
-# Setup tmux
+# 🪓 tmux
 
 ## Link the tmux-conf
 

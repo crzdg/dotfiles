@@ -1,45 +1,32 @@
-# crzdg dotfiles
+# 🫥📄
 
-username: rb 
-HOME: /home/rb 
-Folders, 
+> The computing scientist's main challenge is not to get confused by the complexities of his own making. 
 
-- /home/rb/dev
-- /home/rb/python
-- /home/rb/git
+\- Edsger W. Dijkstra
 
-PATH
+## 🙏 Acknowledgment
+
+Big Kudos to [@furgerf](https://github/com/furgerf) who introduced my to `nvim`, `tmux`, `shells`, `fzf` and the like! 
+
+My dotfiles are heavily inspired and built upon his [dotfiles](https://github.com/furgerf/dotfiles).
+
+## 🤩 Tools
+
+- ✏️ nvim
+- 🪓 tmux
+- 🐚 zsh
+- 🔎 fzf
+- 🪟 wsl2
+- 🎨 gruvbox-baby
+
+### ➕ extra tools
+
+- bat
+- python3-pip
+- python3-venv
+- [fnm](https://github.com/Schniz/fnm) (See [runtimes/nodejs](runtimes/nodejs/README.md))
+
+```bash
+sudo apt install bat python3-pip python3-venv 
+curl -fsSL https://fnm.vercel.app/install | bash
 ```
-
-```
-
-## Steps
-
-1. configure Machine / WSL2
-2. configure ssh
-3. configure zsh
-5. configure tmux
-5. configure fzf
-6. configure nvim
-
-
-## Install tools
-
-```
-sudo apt install bat python3-pip python3-venv
-```
-
-## Create github key pair for WSL machine
-
-https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
-
-```
-ssh-keygen -t ed25519 -C "reto@fambarm.ch"
-```
-
-Add newly created key to github keys.
-
-
-
-
-

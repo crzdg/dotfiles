@@ -1,12 +1,8 @@
-# Install nodejs
+# 🍃 nodejs
 
 ## fnm Node Manager
-
-Use the download script
+https://raw.githubusercontent.com/Schniz/fnm/master/.ci/install.sh
 
 ```bash
 curl -fsSL https://fnm.vercel.app/install | bash
 ```
-
-https://raw.githubusercontent.com/Schniz/fnm/master/.ci/install.sh
-
