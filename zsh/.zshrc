@@ -62,6 +62,9 @@ ZSH_THEME="spaceship"
 source $ZSH_CONFIG_DIR/spaceship_prompt.zsh
 plugins=()
 
+# load defaults
+source $ZSH_CONFIG_DIR/machines/default.zsh
+
 case $HOST in
     moltres) source $ZSH_CONFIG_DIR/machines/moltres.zsh;;
     DESWS-0009) source $ZSH_CONFIG_DIR/machines/desws-0009.zsh;;
@@ -71,9 +74,16 @@ case $HOST in
     *) source $ZSH_CONFIG_DIR/machines/default.zsh;;
 esac
 
+
+# Export host indicator variables
 export HOST_INDICATOR_COLOR=$HOST_INDICATOR_COLOR
 export HOST_EMOJI=$HOST_EMOJI
+
+# Export projectx variables
 export PROJECTX_FOLDERS=$PROJECTX_FOLDERS
+export PROJECTX_INTERNET_CHECKS=$PROJECTX_INTERNET_CHECKS
+export PROJECTX_GIT_FETCH=$PROJECTX_GIT_FETCH
+export PROJECTX_BUMPY_PYTHON=$PROJECTX_BUMPY_PYTHON
 
 SPACESHIP_CHAR_SYMBOL="$HOST_EMOJI "
 SPACESHIP_USER_SUFFIX="[$HOST_USER_SUFFIX] "
