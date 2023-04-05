@@ -60,7 +60,7 @@ cd ../..
 ./3rd/luamake/luamake rebuild
 ```
 
-### Install vscode-langservers-extraced (vscode-json-langugeserver)
+### Install vscode-langservers-extraced (vscode-json-languageserver)
 ```bash
 npm i -g vscode-langservers-extracted
 ```
