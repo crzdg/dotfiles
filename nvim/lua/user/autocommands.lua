@@ -34,6 +34,11 @@ vim.cmd [[
     autocmd BufWritePre *.py lua vim.lsp.buf.format()
   augroup end
 
+  augroup _lua
+    autocmd!
+    autocmd BufWritePre *.lua lua vim.lsp.buf.format()
+  augroup end
+
   augroup _json
     autocmd!
     autocmd BufWritePre *.json,*.jsonc lua vim.lsp.buf.formatting_sync()
