@@ -1,7 +1,7 @@
 -- credits to https://github.com/furgerf/dotfiles/blob/master/vim/ftplugin/python.vim
 vim.cmd[[
-    let test#python#pytest#executable = 'python3 -m pytest'
     let test#python#runner = 'pytest'
+    let test#python#pytest#executable = 'python3 -m pytest'
     let test#python#pytest#options = '--ignore=deps --exitfirst --failed-first --new-first --capture=sys -vv'
     let test#python#pytest#file_pattern = '\v(test_[^/]+|[^/]+_tests)\.py$'
     function! DockerTransform(cmd) abort
