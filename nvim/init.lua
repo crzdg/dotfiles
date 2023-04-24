@@ -46,4 +46,3 @@ require "user.tint"
 -- require "user.obsidian"
 -- require "user.colorful-winsep"
 -- require "user.glow"
-
