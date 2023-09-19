@@ -2,8 +2,8 @@ require("user.utils")
 
 local function searchPath()
     if isInGitRepo()
-        then
-            return gitRepoPath()
+    then
+        return gitRepoPath()
     end
     return "."
 end
@@ -24,14 +24,17 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-require 'lspconfig'.pylsp.setup{
+require 'lspconfig'.pylsp.setup {
     capabilities = capabilities,
     settings = {
         pylsp = {
             plugins = {
+                pyls_isort = {
+                    enabled = true
+                },
                 pylint = {
                     enabled = pylintrc(),
-                    args = {"--output-format=text"},
+                    args = { "--output-format=text" },
                     executable = "pylint"
                 },
                 jedi_completion = {
@@ -39,9 +42,9 @@ require 'lspconfig'.pylsp.setup{
                 },
                 pylsp_mypy = {
                     enabled = mypy(),
-                    live_mode = false,
-                    dmypy = true,
-                    overrides = {true, "--no-pretty", "--hide-error-context"},
+                    live_mode = true,
+                    dmypy = false,
+                    overrides = { true, "--no-pretty", "--hide-error-context" },
                 },
                 ruff = {
                     enabled = ruff(),

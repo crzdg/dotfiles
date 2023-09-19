@@ -102,3 +102,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # STARTUP
 [ -z $TMUX ] && { tmux attach -t main || tmux new-session -s main ; }
+
+# fnm
+export PATH="/home/rb/.local/share/fnm:$PATH"
+eval "`fnm env`"

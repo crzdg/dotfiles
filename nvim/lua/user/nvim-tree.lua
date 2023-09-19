@@ -114,6 +114,8 @@ local function on_attach(bufnr)
 
     vim.keymap.set('n', '<C-s>', api.node.open.vertical, opts('Vertical Split'))
     vim.keymap.set('n', '<C-v>', api.node.open.horizontal, opts('Horizontal Split'))
+    vim.keymap.set('n', 'l', api.node.open.vertical, opts('Expand Node'))
+    vim.keymap.set('n', 'h', api.node.navigate.parent_close, opts('Expand Node'))
 
     vim.keymap.set('n', 'Z', api.node.run.system, opts('Run System'))
 end
