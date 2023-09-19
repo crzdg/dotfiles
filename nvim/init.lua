@@ -34,6 +34,8 @@ require "user.jupytext"
 require "user.iron"
 require "user.peek"
 
+require "user.copilot"
+
 -- Load tint in the end to cache all highlights
 require "user.tint"
 
