@@ -14,7 +14,6 @@ require "user.treesitter"
 require "user.comment"
 require "user.gitsigns"
 require "user.trouble"
-require "user.lsp_signature_config"
 
 -- LSP
 require "user.lspsaga"
@@ -41,6 +40,7 @@ require "user.tint"
 -- archive
 -- require "user.alpha"
 -- require "user.toggleterm"
+-- require "user.lsp_signature_config"
 -- require "user.nvim-tree"
 -- require "user.telescope"
 -- require "user.obsidian"
