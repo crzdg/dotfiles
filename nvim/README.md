@@ -45,7 +45,21 @@ pip3 install pynvim
 ### Install python-lsp-server
 
 For the use of the `python-lsp-server` it needs to be installed in any dev environment.
-This is handled with the venvmgr.zsh(../zsh/venvmgr.zsh)
+This is handled with venvmgr.zsh(../zsh/venvmgr.zsh)
+
+### Install pylyzer
+
+```bash
+# rust
+cargo install pylyzer
+
+# OR pip
+pip install pylyzer
+curl -L https://github.com/mtshiba/ergup/raw/main/ergup.py | python3
+
+# OR install erg through cargo
+cargo install erg
+```
 
 ### Install lua-language-server
 https://github.com/sumneko/lua-language-server/wiki/Getting-Started#command-line
@@ -75,7 +89,20 @@ npm i -g bash-language-server
 npm i -g yaml-language-server
 ```
 
-### Optional: dependencies for peek (markdown preview)
+### Install rust-analyzer
+
+https://rust-analyzer.github.io/manual.html#rust-analyzer-language-server-binary
+
+```bash
+rustup component add rust-analyzer
+rustup which --toolchain stable rust-analyzer
+cd ~/.cargo/bin
+ln -sf /home/rb/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/rust-analyzer rust-analyzer
+```
+
+Otherwise, build binaries manually.
+
+## Optional: dependencies for peek (markdown preview)
 ```bash
 # install deno
 curl -fsSL https://deno.land/x/install/install.sh | sh

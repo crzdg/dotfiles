@@ -8,6 +8,9 @@ iron.setup({
         command = { "ipython" },
         format = require("iron.fts.common").bracketed_paste,
       },
+      R = {
+          command = { "R "}
+      }
     },
     repl_open_cmd = require("iron.view").split.vertical("42%")
   },

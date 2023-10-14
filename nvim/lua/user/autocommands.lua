@@ -41,7 +41,12 @@ vim.cmd [[
 
   augroup _json
     autocmd!
-    autocmd BufWritePre *.json,*.jsonc lua vim.lsp.buf.formatting_sync()
+    autocmd BufWritePre *.json,*.jsonc lua vim.lsp.buf.format()
+  augroup end
+
+  augroup _rust
+    autocmd!
+    autocmd BufWritePre *.rs lua vim.lsp.buf.format()
   augroup end
 
   " augroup _ipynb

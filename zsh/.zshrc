@@ -12,6 +12,8 @@ export LANG=C.UTF-8
 export PATH="$PATH:$HOME/dev/fzf/bin" # add fzf (fuzzy finder) to path
 export PATH="$PATH:$HOME/dev/lua-language-server/bin" # Add lua language server to path
 export PATH="$PATH:$HOME/dev/win32yank" # Add win32yank to path
+export PATH="$PATH:$HOME/.erg/bin" # Erg for pylyzer
+export ERG_PATH="$HOME/.erg"
 export LPASS_CLIPBOARD_COMMAND="win32yank.exe -i"
 export LPASS_AGENT_TIMEOUT=0
 
