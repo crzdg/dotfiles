@@ -82,6 +82,7 @@ npm i -g vscode-langservers-extracted
 ### Install bash-language-server
 ```bash
 npm i -g bash-language-server
+# For linting install shellcheck
 ```
 
 ### Install yaml-language-server
