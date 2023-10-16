@@ -75,6 +75,7 @@ esac
 # Export host indicator variables
 export HOST_INDICATOR_COLOR=$HOST_INDICATOR_COLOR
 export HOST_EMOJI=$HOST_EMOJI
+export HOST_USER_SUFFIX=$HOST_USER_SUFFIX
 
 # Export projectx variables
 export PROJECTX_FOLDERS=$PROJECTX_FOLDERS

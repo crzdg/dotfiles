@@ -86,7 +86,7 @@ fzf-project-widget () {
     COMMAND="find $PROJECTX_FOLDERS -maxdepth 1 -mindepth 1 -type d"
     _setup_tmux_project_or_switch $(eval $COMMAND 2> /dev/null | \
         fzf -d / --with-nth=-1 \
-        --border-label "🐛" --prompt "Project> " \
+        --border-label "🐛$HOST_EMOJI$HOST_USER_SUFFIX" --prompt "Project> " \
         --preview 'batcat --color=always {}/README.md 2> /dev/null || echo "No README.md found!"' --preview-label "README"
     )
 }
@@ -112,7 +112,7 @@ fzf-step-widget () {
 
 fzf-window-selection () {
     local window
-    window=$(tmux list-window | fzf -d " "  --with-nth=2 )
+    window=$(tmux list-window | fzf -d " "  --with-nth=1,2 )
     window=$( echo "$window" | cut -d":" -f1)
     tmux select-window -t "$window"
 }
