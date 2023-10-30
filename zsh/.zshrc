@@ -104,3 +104,9 @@ export NVM_DIR="$HOME/.nvm"
 # fnm
 export PATH="/home/rb/.local/share/fnm:$PATH"
 eval "`fnm env`"
+
+# fnm
+export PATH="/home/rb/.local/share/fnm:$PATH"
+eval "`fnm env`"
+export MODULAR_HOME="/home/rb/.modular"
+export PATH="/home/rb/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
