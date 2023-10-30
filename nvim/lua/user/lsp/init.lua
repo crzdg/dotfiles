@@ -11,10 +11,11 @@ require("user.lsp.settings.jsonls")
 require("user.lsp.settings.lua_ls")
 require("user.lsp.settings.yamlls")
 require("user.lsp.settings.bashls")
+require("user.lsp.settings.mojo")
 require("user.lsp.settings.rust_analyzer")
 -- require("user.lsp.settings.pylyzer")
 
--- [[ capabilities = vim.lsp.protocol.make_client_capabilities() ]]
--- [[ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities) ]]
--- [[ capabilities.textDocument.completion.completionItem.snippetSupport = true ]]
--- [[ require("lspconfig").jsonls.setup {capabilities = capabilities, require("user.lsp.settings.jsonls").opts} ]]
+--[[ capabilities = vim.lsp.protocol.make_client_capabilities() ]]
+--[[ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities) ]]
+--[[ capabilities.textDocument.completion.completionItem.snippetSupport = true ]]
+--[[ require("lspconfig").jsonls.setup {capabilities = capabilities, require("user.lsp.settings.jsonls").opts} ]]
