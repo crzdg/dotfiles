@@ -14,6 +14,7 @@ require "user.treesitter"
 require "user.comment"
 require "user.gitsigns"
 require "user.trouble"
+require "user.maximizer"
 
 -- LSP
 require "user.lspsaga"

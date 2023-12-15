@@ -81,6 +81,7 @@ return packer.startup(function(use)
     use "folke/which-key.nvim"
     use "ahmedkhalf/project.nvim"
     use "alexghergh/nvim-tmux-navigation"
+    use "0x00-ketsu/maximizer.nvim"
 
     -- Coding / Document handling
     use "kylechui/nvim-surround"

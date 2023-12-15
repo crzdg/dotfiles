@@ -194,6 +194,11 @@ _G.packer_plugins = {
     path = "/home/rb/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["maximizer.nvim"] = {
+    loaded = true,
+    path = "/home/rb/.local/share/nvim/site/pack/packer/start/maximizer.nvim",
+    url = "https://github.com/0x00-ketsu/maximizer.nvim"
+  },
   ["nlsp-settings.nvim"] = {
     loaded = true,
     path = "/home/rb/.local/share/nvim/site/pack/packer/start/nlsp-settings.nvim",
