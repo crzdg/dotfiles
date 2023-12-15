@@ -1,6 +1,9 @@
 local saga = require('lspsaga')
-saga.init_lsp_saga({
+saga.setup({
     use_saga_diagnostic_sign = false,
+    diagnostic_header_icon = ' 🪳 ',
+    diagnostic_message_format = "%m %c (%s)",
+    diagnostic_prefix_format = "%d. ",
     code_action_prompt = {
         enable = false,
         virtual_text = false,
@@ -20,7 +23,7 @@ saga.init_lsp_saga({
         quit = "q"
     },
     rename_action_keys = {
-        quit= "C-q",
+        quit = "C-q",
     },
- }
+}
 )
