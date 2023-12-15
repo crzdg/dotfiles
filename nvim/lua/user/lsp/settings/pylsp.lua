@@ -22,10 +22,8 @@ local function ruff()
     return exists(basepath .. "/ruff.toml")
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 require 'lspconfig'.pylsp.setup {
-    capabilities = capabilities,
+    capabilities = require("user.lsp.handlers").capabilities,
     settings = {
         pylsp = {
             plugins = {

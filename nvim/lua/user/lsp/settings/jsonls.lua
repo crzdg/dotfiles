@@ -138,8 +138,8 @@ local schemas = {
         },
         url = "https://json.schemastore.org/feed.json",
         versions = {
-                ["1"] = "https://json.schemastore.org/feed-1.json",
-                ["1.1"] = "https://json.schemastore.org/feed.json",
+            ["1"] = "https://json.schemastore.org/feed-1.json",
+            ["1.1"] = "https://json.schemastore.org/feed.json",
         },
     },
     {
@@ -195,7 +195,6 @@ local opts = {
     },
 }
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+local capabilities = require("user.lsp.handlers").capabilities
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 require("lspconfig").jsonls.setup { capabilities = capabilities, settings = opts.settings, setup = opts.setup }
