@@ -7,5 +7,4 @@ local colors = require("gruvbox-baby.colors").config()
 --[[ vim.g.gruvbox_baby_highlights = { ]]
 --[[     Search = { fg = colors.comment, bg = colors.foreground}, ]]
 --[[ } ]]
-
-vim.cmd[[colorscheme gruvbox-baby]]
+vim.cmd [[colorscheme gruvbox-baby]]
