@@ -40,7 +40,7 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Insert --
--- Press jk fast to input <ESC> 
+-- Press jk fast to input <ESC>
 keymap("i", "jk", "<ESC>", opts)
 
 -- Visual --
@@ -56,15 +56,18 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
 -- LSP Saga --
-keymap("n", "gr", "<cmd>Lspsaga rename<CR>", {silent = true})
-keymap("n", "gd", "<cmd>Lspsaga preview_definition<CR>", {silent = true})
-keymap("n", "cl", "<cmd>Lspsaga show_line_diagnostics<CR>", {silent = true})
-keymap("n", "cn", "<cmd>Lspsaga diagnostic_jump_next<CR>", {silent = true})
-keymap("n", "cp", "<cmd>Lspsaga diagnostic_jump_prev<CR>", {silent = true})
-keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", {silent = true, noremap = true})
+keymap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
+keymap("n", "gd", "<cmd>Lspsaga preview_definition<CR>", { silent = true })
+keymap("n", "cl", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
+keymap("n", "cn", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
+keymap("n", "cp", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
+keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true, noremap = true })
 
 -- Jupyter Notebook --
 keymap("n", "]x", "ctrih/^# %%<CR> h", {})
 
 -- Nonesense --
 keymap("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", opts)
+
+--- Zoom ---
+keymap("n", '<leader>z', '<cmd>lua require("maximizer").toggle()<CR>', opts)
