@@ -1,5 +1,5 @@
 -- credits to https://github.com/furgerf/dotfiles/blob/master/vim/ftplugin/python.vim
-vim.cmd[[
+vim.cmd [[
     let test#python#runner = 'pytest'
     let test#python#pytest#executable = 'python3 -m pytest'
     let test#python#pytest#options = '--ignore=deps --exitfirst --failed-first --new-first --capture=sys -vv'
@@ -16,4 +16,7 @@ vim.cmd[[
     let g:test#neovim#start_normal = 0
     let g:test#preserve_screen = 0
     let g:test#strategy = "harpoon"
+    " let g:test#strategy = "neovim_sticky"
+    " let g:test#neovim_sticky#kill_previous = 1
+    " let test#neovim#term_position = "vert botright 120"
 ]]
