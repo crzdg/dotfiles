@@ -127,11 +127,11 @@ cmp.setup {
         end,
     },
     sources = {
-        { name = "copilot",  priority = 40, group_index = 1 },
-        { name = "luasnip",  priority = 30, group_index = 1 },
-        { name = "buffer",   priority = 20, group_index = 2 },
-        { name = "path",     priority = 10, group_index = 1 },
-        { name = "nvim_lsp", priority = 0,  group_index = 1 },
+        { name = "nvim_lsp", priority = 40 },
+        { name = "path",     priority = 30 },
+        { name = "buffer",   priority = 20 },
+        { name = "luasnip",  priority = 10 },
+        { name = "copilot",  priority = 0 },
         -- { name = "nvim_lsp_signature_help", priority = -1 }
     },
     confirm_opts = {
