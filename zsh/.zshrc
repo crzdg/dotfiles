@@ -66,6 +66,7 @@ case $HOST in
     moltres) source $ZSH_CONFIG_DIR/machines/moltres.zsh;;
     DESWS-0009) source $ZSH_CONFIG_DIR/machines/desws-0009.zsh;;
     mew) source $ZSH_CONFIG_DIR/machines/mew.zsh;;
+    mewtwo) source $ZSH_CONFIG_DIR/machines/mewtwo.zsh;;
     docker) source $ZSH_CONFIG_DIR/machines/docker.zsh;;
     zapdos) source $ZSH_CONFIG_DIR/machines/zapdos.zsh;;
     *) source $ZSH_CONFIG_DIR/machines/default.zsh;;
@@ -101,6 +102,8 @@ export NVM_DIR="$HOME/.nvm"
 # STARTUP
 [ -z $TMUX ] && { tmux attach -t main || tmux new-session -s main ; }
 
+
+# TODO: Handle paths per machine
 # fnm
 export PATH="/home/rb/.local/share/fnm:$PATH"
 eval "`fnm env`"
