@@ -16,7 +16,7 @@ https://github.com/neovim/neovim/wiki/Building-Neovim
 ```bash
 git clone https://github.com/neovim/neovim /home/rb/dev/neovim
 cd /home/rb/dev/neovim
-git checkout v0.9.0
+git checkout v0.9.5
 
 make distclean
 make deps
