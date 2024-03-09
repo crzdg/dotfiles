@@ -16,36 +16,35 @@ local check_backspace = function()
     return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
---   פּ ﯟ   some other good icons
+-- find more here: https://www.nerdfonts.com/cheat-sheet
 local kind_icons = {
-    Text = "",
+    Text = "󰉿",
     Method = "m",
-    Function = "",
-    Constructor = "",
-    Field = "",
-    Variable = "",
-    Class = "",
-    Interface = "",
-    Module = "",
+    Function = "󰊕",
+    Constructor = "",
+    Field = "",
+    Variable = "󰆧",
+    Class = "",
+    Interface = "",
+    Module = "",
     Property = "",
     Unit = "",
-    Value = "",
+    Value = "",
     Enum = "",
-    Keyword = "",
+    Keyword = "󰌋",
     Snippet = "",
-    Color = "",
-    File = "",
+    Color = "",
+    File = "",
     Reference = "",
-    Folder = "",
+    Folder = "",
     EnumMember = "",
-    Constant = "",
+    Constant = "󰭷",
     Struct = "",
     Event = "",
-    Operator = "",
-    TypeParameter = "",
+    Operator = "󱓉",
+    TypeParameter = "󰊄",
     Copilot = ""
 }
--- find more here: https://www.nerdfonts.com/cheat-sheet
 
 cmp.setup {
     view = {
@@ -61,7 +60,7 @@ cmp.setup {
     mapping = {
         ["<C-k>"] = cmp.mapping.select_prev_item(),
         ["<C-j>"] = cmp.mapping.select_next_item(),
-        ["<C-l>"] = cmp.mapping(cmp.mapping.scroll_docs( -1), { "i", "c" }),
+        ["<C-l>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
         ["<C-h>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
         ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
         ["<C-d>"] = function()
@@ -99,8 +98,8 @@ cmp.setup {
         ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
-            elseif luasnip.jumpable( -1) then
-                luasnip.jump( -1)
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
             else
                 fallback()
             end
@@ -117,12 +116,12 @@ cmp.setup {
             vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
             -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
             vim_item.menu = ({
-                    nvim_lsp = "[LSP]",
-                    luasnip = "[Snippet]",
-                    buffer = "[Buffer]",
-                    path = "[Path]",
-                    copilot = "[Copilot]"
-                })[entry.source.name]
+                nvim_lsp = "[LSP]",
+                luasnip = "[Snippet]",
+                buffer = "[Buffer]",
+                path = "[Path]",
+                copilot = "[Copilot]"
+            })[entry.source.name]
             return vim_item
         end,
     },

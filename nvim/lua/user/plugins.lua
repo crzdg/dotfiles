@@ -68,8 +68,8 @@ packer.init {
 return packer.startup(function(use)
     -- My plugins here
     use "wbthomason/packer.nvim" -- Have packer manage itself
-    use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-    use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+    use "nvim-lua/popup.nvim"    -- An implementation of the Popup API from vim in Neovim
+    use "nvim-lua/plenary.nvim"  -- Useful lua functions used ny lots of plugins
     use "lewis6991/impatient.nvim"
     use "moll/vim-bbye"
     use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
@@ -102,12 +102,12 @@ return packer.startup(function(use)
     use "levouh/tint.nvim"
     --[[ use "nvim-zh/colorful-winsep.nvim" ]]
     -- cmp plugins
-    use "hrsh7th/nvim-cmp" -- The completion plugin
-    use "hrsh7th/cmp-buffer" -- buffer completions
-    use "hrsh7th/cmp-path" -- path completions
-    use "hrsh7th/cmp-cmdline" -- cmdline completions
+    use "hrsh7th/nvim-cmp"         -- The completion plugin
+    use "hrsh7th/cmp-buffer"       -- buffer completions
+    use "hrsh7th/cmp-path"         -- path completions
+    use "hrsh7th/cmp-cmdline"      -- cmdline completions
     use "saadparwaiz1/cmp_luasnip" -- snippet completions
-    use "hrsh7th/cmp-nvim-lsp" -- LSP completion
+    use "hrsh7th/cmp-nvim-lsp"     -- LSP completion
     --[[ use "hrsh7th/cmp-nvim-lsp-signature-help" ]]
     -- signature help tool for cmp
     use "ray-x/lsp_signature.nvim" -- standalone signature help, customizable
@@ -116,9 +116,9 @@ return packer.startup(function(use)
     use "L3MON4D3/LuaSnip" --snippet engine
 
     -- LSP
-    use "neovim/nvim-lspconfig" -- enable LSP
+    use "neovim/nvim-lspconfig"           -- enable LSP
     --[[ use "williamboman/nvim-lsp-installer" -- simple to use language server installer ]]
-    use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
+    use "tamago324/nlsp-settings.nvim"    -- language server settings defined in json for
     use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
     -- Treesitter
