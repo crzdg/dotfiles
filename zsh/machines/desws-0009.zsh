@@ -1,5 +1,5 @@
-alias csedi="openvpn-gui.exe --command silent_connection 1 && openvpn-gui.exe --command connect DESWS-0009"
-alias dsedi="openvpn-gui.exe --command disconnect DESWS-0009"
+alias chelpy="openvpn-gui.exe --command silent_connection 1 && openvpn-gui.exe --command connect DESWS-0009"
+alias dhelpy="openvpn-gui.exe --command disconnect DESWS-0009"
 
 PROJECTX_FOLDERS="~/git ~/git/helpany"
 PROJECTX_INTERNET_CHECKS=1
