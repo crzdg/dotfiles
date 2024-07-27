@@ -3,6 +3,7 @@
 2. clone dotfiles
 3. clone gruvbox-baby (crzdg)
 - Install JetBrains Font
+- DESWS-0009 used: file version 2.304
 - may use v3.x or v2.x (v2 is tested v3 might show problems)
 12. Link windows terminal config
 - Fix font if needed (in default and ubuntu, may also remove default ubuntu profile)
