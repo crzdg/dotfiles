@@ -1,4 +1,6 @@
+- Install wsl
 - Install windows terminal
+- Setup .wslconfig and /etc/wsl.conf ! -> This is crucial!
 1. Setup github key
 2. clone dotfiles
 3. clone gruvbox-baby (crzdg)
