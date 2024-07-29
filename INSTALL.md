@@ -26,5 +26,6 @@
 - Install nvim pythonenv
 - Link clipcoard (yank)
 - copy win32yank, ln -s to wl-clip and xclip in /home/dev/win32yank
+-> copy it to windows path and add folder to win PATH variable. -> otherwise speed problems
 
 # TODO: Move ssh-find-agent from zsh README

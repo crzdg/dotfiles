@@ -62,8 +62,8 @@ if os.getenv("WSL_DISTRO_NAME")
                 ["*"] = "win32yank.exe -i --crlf"
               },
               paste = {
-                ["+"] = "win32yank.exe -o --crlf",
-                ["*"] = "win32yank.exe -o --crlf"
+                ["+"] = "win32yank.exe -o --lf",
+                ["*"] = "win32yank.exe -o --lf"
               },
               cache_enable = 0,
         }

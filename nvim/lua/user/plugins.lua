@@ -73,12 +73,12 @@ return packer.startup(function(use)
     use "lewis6991/impatient.nvim"
     use "moll/vim-bbye"
     use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
-    use "kyazdani42/nvim-web-devicons"
-    use "kyazdani42/nvim-tree.lua"
+    use "nvim-tree/nvim-web-devicons"
+    use "nvim-tree/nvim-tree.lua"
     use "ThePrimeagen/harpoon"
 
     -- Workspace handling
-    use "folke/which-key.nvim"
+    use {"folke/which-key.nvim", tag="v2.1.0"}
     use "ahmedkhalf/project.nvim"
     use "alexghergh/nvim-tmux-navigation"
     use "0x00-ketsu/maximizer.nvim"
