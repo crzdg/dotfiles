@@ -4,7 +4,7 @@
 
 ### Install build dependencies
 
-```
+```bash
 sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
 ```
 
@@ -16,7 +16,7 @@ https://github.com/neovim/neovim/wiki/Building-Neovim
 ```bash
 git clone https://github.com/neovim/neovim /home/rb/dev/neovim
 cd /home/rb/dev/neovim
-git checkout v0.9.5
+git checkout v0.10.1
 
 make distclean
 make deps
@@ -27,7 +27,7 @@ sudo make install
 
 ### Link nvim config
 
-```
+```bash
 ln -sf /home/rb/git/dotfiles/nvim ~/.config/nvim
 ```
 

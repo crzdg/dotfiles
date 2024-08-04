@@ -4,9 +4,7 @@
 1. Setup github key
 2. clone dotfiles
 3. clone gruvbox-baby (crzdg)
-- Install JetBrains Font
-- DESWS-0009 used: file version 2.304
-- may use v3.x or v2.x (v2 is tested v3 might show problems)
+- Install JetBrains Font - use v3 Fonts
 12. Link windows terminal config
 - Fix font if needed (in default and ubuntu, may also remove default ubuntu profile)
 - Install fnm
@@ -19,7 +17,7 @@
 7. Link .zshrc
 8. Install ssh-agent-finder
 9. Link .tmux.conf
-10. Install dependencies (root README.md, add unzip)
+10. Install dependencies (root README.md)
 11. Install nerdfont on windows, update font link in wsl/readme.md
 4. Install fzf
 - Install nvim
