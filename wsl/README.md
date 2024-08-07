@@ -68,7 +68,6 @@ generateResolvConf = true
 [boot]
 command="service cron start"
 ```
-
 ```bash
 vim /etc/wsl.conf
 ```

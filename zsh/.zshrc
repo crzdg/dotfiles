@@ -120,3 +120,5 @@ export PATH="/home/rb/.local/share/fnm:$PATH"
 eval "`fnm env`"
 export MODULAR_HOME="/home/rb/.modular"
 export PATH="/home/rb/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
+
+alias luamake="/home/rb/dev/lua-language-server/3rd/luamake/luamake"
