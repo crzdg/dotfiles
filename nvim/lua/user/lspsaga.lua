@@ -1,29 +1,26 @@
 local saga = require('lspsaga')
 saga.setup({
+    lightbulb = {
+        enable = false,
+        virtual_text = false,
+    },
+    symbol_in_winbar = {
+        enable = false,
+    },
     use_saga_diagnostic_sign = false,
     diagnostic_header_icon = ' 🪳 ',
     diagnostic_message_format = "%m %c (%s)",
     diagnostic_prefix_format = "%d. ",
-    code_action_prompt = {
-        enable = false,
-        virtual_text = false,
-        sign = false,
+    finder = {
+        keys = {
+            open = "o",
+            vsplit = "s",
+            split = "v",
+            quit = "q"
+        }
     },
-    rename_output_qflist = {
-        enable = false,
-        auto_open_qflsit = false,
-    },
-    finder_action_keys = {
-        open = "o",
-        vsplit = "s",
-        split = "v",
-        quit = "q"
-    },
-    code_action_keys = {
-        quit = "q"
-    },
-    rename_action_keys = {
-        quit = "C-q",
-    },
+    rename = { keys = { quit = "C-q" } },
+    code_action = { keys = { quit = "q" } },
+    definition = { width = 0.6, height = 0.6 },
 }
 )

@@ -104,7 +104,7 @@ local mappings = {
     --
     l = {
         name = "LSP",
-        u = { "<cmd>Lspsaga lsp_finder<cr>", "Show Usage" },
+        u = { "<cmd>Lspsaga finder<cr>", "Show Usage" },
         d = { "<cmd>FzfLua lsp_definitions<cr>", "Show definitions" },
         r = { "<cmd>FzfLua lsp_references<cr>", "Show references" },
         a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },

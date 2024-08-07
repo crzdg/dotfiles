@@ -78,7 +78,7 @@ return packer.startup(function(use)
     use "ThePrimeagen/harpoon"
 
     -- Workspace handling
-    use {"folke/which-key.nvim", tag="v2.1.0"}
+    use { "folke/which-key.nvim", tag = "v2.1.0" }
     use "ahmedkhalf/project.nvim"
     use "alexghergh/nvim-tmux-navigation"
     use "0x00-ketsu/maximizer.nvim"
@@ -91,7 +91,6 @@ return packer.startup(function(use)
     -- Testing and Diagnostics
     use "vim-test/vim-test"
     use "folke/trouble.nvim"
-    use "tami5/lspsaga.nvim"
 
     -- Apperance
     use { "crzdg/gruvbox-baby", branch = "main" }
@@ -117,6 +116,7 @@ return packer.startup(function(use)
 
     -- LSP
     use "neovim/nvim-lspconfig"           -- enable LSP
+    use { "nvimdev/lspsaga.nvim", after = "nvim-lspconfig" }
     --[[ use "williamboman/nvim-lsp-installer" -- simple to use language server installer ]]
     use "tamago324/nlsp-settings.nvim"    -- language server settings defined in json for
     use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
