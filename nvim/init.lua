@@ -17,8 +17,8 @@ require "user.trouble"
 require "user.maximizer"
 
 -- LSP
-require "user.lspsaga"
 require "user.lsp"
+require "user.lspsaga"
 
 -- Utils
 require "user.fzf-lua"

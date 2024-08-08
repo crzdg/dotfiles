@@ -14,11 +14,20 @@ export PATH="$PATH:$HOME/dev/lua-language-server/bin" # Add lua language server 
 export PATH="$PATH:$HOME/dev/win32yank" # Add win32yank to path
 export PATH="$PATH:$HOME/.erg/bin" # Erg for pylyzer
 export ERG_PATH="$HOME/.erg"
+
+# PATH
+FNM_PATH="$HOME/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$HOME/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
+
+# Add handler for non-WSL machine
 export LPASS_CLIPBOARD_COMMAND="win32yank.exe -i"
 export LPASS_AGENT_TIMEOUT=0
 
 # Optional: Deno for peek in nvim
-export DENO_INSTALL="/home/rb/.deno"
+export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
 # DEPRECATED / OPTIONAL
@@ -26,6 +35,7 @@ export PATH="$PATH:$HOME/.yarn/bin" # Add user yarn global to path
 export PATH="$PATH:/usr/local/go/bin" # Ad go bin to bath
 export PATH="$PATH:$HOME/dev/balena-cli" # Add balena cl to path
 export PATH="$PATH:$HOME/.local/bin"
+export MODULAR_HOME="$HOME/.modular"
 
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -69,6 +79,7 @@ case $HOST in
     mewtwo) source $ZSH_CONFIG_DIR/machines/mewtwo.zsh;;
     docker) source $ZSH_CONFIG_DIR/machines/docker.zsh;;
     zapdos) source $ZSH_CONFIG_DIR/machines/zapdos.zsh;;
+    jd-r90vkez1) source $ZSH_CONFIG_DIR/machines/jaywalker.zsh;;
     *) source $ZSH_CONFIG_DIR/machines/default.zsh;;
 esac
 
@@ -104,21 +115,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Source fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # STARTUP
 [ -z $TMUX ] && { tmux attach -t main || tmux new-session -s main ; }
 
-
-# TODO: Handle paths per machine
-# fnm
-export PATH="/home/rb/.local/share/fnm:$PATH"
-eval "`fnm env`"
-
-# fnm
-export PATH="/home/rb/.local/share/fnm:$PATH"
-eval "`fnm env`"
-export MODULAR_HOME="/home/rb/.modular"
-export PATH="/home/rb/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
-
-alias luamake="/home/rb/dev/lua-language-server/3rd/luamake/luamake"
+alias luamake="/home/reto_barmettler/dev/lua-language-server/3rd/luamake/luamake"

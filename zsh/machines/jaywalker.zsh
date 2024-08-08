@@ -1,4 +1,4 @@
-PROJECTX_FOLDERS="~/git ~/git/jaywalker"
+PROJECTX_FOLDERS="~/git ~/jaywalker/git"
 PROJECTX_INTERNET_CHECKS=0
 PROJECTX_GIT_FETCH=1
 PROJECTX_BUMP_PYTHON=0
@@ -15,3 +15,10 @@ SPACESHIP_GIT_BRANCH_COLOR=$JAYWALKER_WHITE
 SPACESHIP_GIT_STATUS_COLOR=$JAYWALKER_BLUE
 
 TMUX_PANE_SEPERATOR_COLOR=$JAYWALKER_BLUE
+
+# PATH
+FNM_PATH="/home/reto_barmettler/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/reto_barmettler/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi

@@ -4,13 +4,32 @@ local M = {}
 M.setup = function()
     local signs = {
         { name = "DiagnosticSignError", text = "" },
-        { name = "DiagnosticSignWarn",  text = "" },
-        { name = "DiagnosticSignHint",  text = "" },
-        { name = "DiagnosticSignInfo",  text = "" },
+        { name = "DiagnosticSignWarn", text = "" },
+        { name = "DiagnosticSignHint", text = "" },
+        { name = "DiagnosticSignInfo", text = "" },
     }
 
     for _, sign in ipairs(signs) do
         vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+    end
+
+    local function severity_prefix(diagnostic, i, total)
+        local severity_map = {
+            [vim.diagnostic.severity.ERROR] = " ",
+            [vim.diagnostic.severity.WARN] = " ",
+            [vim.diagnostic.severity.INFO] = " ",
+            [vim.diagnostic.severity.HINT] = " ",
+        }
+
+        local hl_group_map = {
+            [vim.diagnostic.severity.ERROR] = "DiagnosticError",
+            [vim.diagnostic.severity.WARN] = "DiagnosticWarn",
+            [vim.diagnostic.severity.INFO] = "DiagnosticInfo",
+            [vim.diagnostic.severity.HINT] = "DiagnosticHint",
+        }
+
+        local severity = severity_map[diagnostic.severity]
+        return severity or "", hl_group_map[diagnostic.severity]
     end
 
     local config = {
@@ -29,7 +48,7 @@ M.setup = function()
             border = "rounded",
             source = "always",
             header = "",
-            prefix = "",
+            prefix = severity_prefix,
         },
     }
 

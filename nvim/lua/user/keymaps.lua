@@ -58,9 +58,9 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 -- LSP Saga --
 keymap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
 keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
-keymap("n", "cl", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
-keymap("n", "cn", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
-keymap("n", "cp", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
+keymap("n", "cl", "<cmd>lua vim.diagnostic.open_float()<CR>", { silent = true })
+keymap("n", "cn", "<cmd>lua vim.diagnostic.goto_next()<CR>", { silent = true })
+keymap("n", "cp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { silent = true })
 keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true, noremap = true })
 
 -- Jupyter Notebook --

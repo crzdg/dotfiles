@@ -40,7 +40,7 @@ venv-install(){
 }
 
 _venv-install() {
-    [ ! -d venv ] && virtualenv -p 3.11 venv
+    [ ! -d venv ] && virtualenv -p 3.12 venv
     venv-update
 }
 

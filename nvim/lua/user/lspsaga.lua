@@ -1,5 +1,4 @@
-local saga = require('lspsaga')
-saga.setup({
+local config = {
     lightbulb = {
         enable = false,
         virtual_text = false,
@@ -7,10 +6,6 @@ saga.setup({
     symbol_in_winbar = {
         enable = false,
     },
-    use_saga_diagnostic_sign = false,
-    diagnostic_header_icon = ' 🪳 ',
-    diagnostic_message_format = "%m %c (%s)",
-    diagnostic_prefix_format = "%d. ",
     finder = {
         keys = {
             open = "o",
@@ -23,4 +18,5 @@ saga.setup({
     code_action = { keys = { quit = "q" } },
     definition = { width = 0.6, height = 0.6 },
 }
-)
+
+return config

@@ -84,7 +84,7 @@ return packer.startup(function(use)
     use "0x00-ketsu/maximizer.nvim"
 
     -- Coding / Document handling
-    use "kylechui/nvim-surround"
+    -- use "kylechui/nvim-surround"
     use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
     use "numToStr/Comment.nvim" -- Easily comment stuff
 
@@ -115,8 +115,15 @@ return packer.startup(function(use)
     use "L3MON4D3/LuaSnip" --snippet engine
 
     -- LSP
-    use "neovim/nvim-lspconfig"           -- enable LSP
-    use { "nvimdev/lspsaga.nvim", after = "nvim-lspconfig" }
+    use "neovim/nvim-lspconfig" -- enable LSP
+    use({
+        'nvimdev/lspsaga.nvim',
+        after = 'nvim-lspconfig',
+        config = function()
+            local config = require("user.lspsaga")
+            require('lspsaga').setup(config)
+        end,
+    })
     --[[ use "williamboman/nvim-lsp-installer" -- simple to use language server installer ]]
     use "tamago324/nlsp-settings.nvim"    -- language server settings defined in json for
     use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
