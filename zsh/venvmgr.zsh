@@ -32,15 +32,15 @@ venv-install(){
     if _is_in_git_repo
     then
         cd $(_git_toplevel)
-        _venv-install
+        _venv-install $1
         cd - > /dev/null
         return 0
     fi
-    _venv-install
+    _venv-install $1
 }
 
 _venv-install() {
-    local PY_VERSION="${1:${PY_TO_INSTALL:-3.11}}"
+    PY_VERSION="${1:-${PY_TO_INSTALL:-3.11}}"
     [ ! -d venv ] && virtualenv -p "$PY_VERSION" venv
     venv-update
 }
