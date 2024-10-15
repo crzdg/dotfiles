@@ -40,7 +40,8 @@ venv-install(){
 }
 
 _venv-install() {
-    [ ! -d venv ] && virtualenv -p 3.12 venv
+    local PY_VERSION="${1:${PY_TO_INSTALL:-3.11}}"
+    [ ! -d venv ] && virtualenv -p "$PY_VERSION" venv
     venv-update
 }
 
