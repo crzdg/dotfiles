@@ -5,7 +5,7 @@ vim.cmd [[
     let test#python#pytest#options = '--ignore=deps --exitfirst --failed-first --new-first --capture=sys -vv'
     let test#python#pytest#file_pattern = '\v(test_[^/]+|[^/]+_tests)\.py$'
     function! DockerTransform(cmd) abort
-        return ' docker-compose -f docker-compose.test.yml run --rm tests ' . a:cmd
+        return ' docker compose -f docker-compose.test.yml run --rm test ' . a:cmd
     endfunction
     let g:test#custom_transformations = {'docker': function('DockerTransform')}
     let g:test#transformation = 'docker'

@@ -27,6 +27,6 @@ My dotfiles are heavily inspired and built upon his [dotfiles](https://github.co
 - [fnm](https://github.com/Schniz/fnm) (See [runtimes/nodejs](runtimes/nodejs/README.md))
 
 ```bash
-sudo apt install bat python3-pip python3-virutalenv unzip
+sudo apt install bat python3-pip python3-virutalenv unzip ripgrep
 curl -fsSL https://fnm.vercel.app/install | bash
 ```

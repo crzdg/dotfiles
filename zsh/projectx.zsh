@@ -144,3 +144,15 @@ fzf-lpass-widget () {
     lpass show --password -c $id
 
 }
+
+kubectl-k9s-selection () {
+    cluster=$(kubectl config get-clusters | tail -n +2 | fzf)
+    local window
+    window=$(tmux list-window | grep -E "[0-9]*:$cluster" | head -1 | cut -d":" -f1)
+    if [[ ! -z "$window" ]]
+    then
+        tmux select-window -t "$window"
+    else
+        tmux new-window -n "$cluster" "k9s --cluster $cluster"
+    fi
+}

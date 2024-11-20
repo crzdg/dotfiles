@@ -14,6 +14,7 @@ export PATH="$PATH:$HOME/dev/lua-language-server/bin" # Add lua language server 
 export PATH="$PATH:$HOME/dev/win32yank" # Add win32yank to path
 export PATH="$PATH:$HOME/.erg/bin" # Erg for pylyzer
 export ERG_PATH="$HOME/.erg"
+export PATH="$PATH:$HOME/dev/k9s/execs"
 
 # PATH
 FNM_PATH="$HOME/.local/share/fnm"
