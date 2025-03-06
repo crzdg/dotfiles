@@ -6,6 +6,17 @@ require 'fzf-lua'.setup {
     -- can also be sent individually:
     -- `<any_function>.({ gl ... })`
     global_resume_query = true, -- include typed query in `resume`?
+    hls = {
+        normal     = 'Normal',     -- window normal color (fg+bg)
+        border     = 'Normal',     -- border color (try 'FloatBorder')
+        -- Only valid with the builtin previewer:
+        cursor     = 'Cursor',     -- cursor highlight (grep/LSP matches)
+        cursorline = 'CursorLine', -- cursor line
+        search     = 'Search',     -- search matches (ctags)
+        -- title       = 'Normal',        -- preview border title (file/buffer)
+        -- scrollbar_f = 'PmenuThumb',    -- scrollbar "full" section highlight
+        -- scrollbar_e = 'PmenuSbar',     -- scrollbar "empty" section highlight
+    },
     winopts             = {
         -- split         = "belowright new",-- open in a split instead?
         -- "belowright new"  : split below
@@ -24,17 +35,6 @@ require 'fzf-lua'.setup {
         -- 'none', 'single', 'double' or 'rounded' (default)
         border           = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
         fullscreen       = false,      -- start fullscreen?
-        hl               = {
-            normal     = 'Normal',     -- window normal color (fg+bg)
-            border     = 'Normal',     -- border color (try 'FloatBorder')
-            -- Only valid with the builtin previewer:
-            cursor     = 'Cursor',     -- cursor highlight (grep/LSP matches)
-            cursorline = 'CursorLine', -- cursor line
-            search     = 'Search',     -- search matches (ctags)
-            -- title       = 'Normal',        -- preview border title (file/buffer)
-            -- scrollbar_f = 'PmenuThumb',    -- scrollbar "full" section highlight
-            -- scrollbar_e = 'PmenuSbar',     -- scrollbar "empty" section highlight
-        },
         preview          = {
             -- default     = 'bat',           -- override the default previewer?
             -- default uses the 'builtin' previewer
@@ -69,7 +69,7 @@ require 'fzf-lua'.setup {
                 foldmethod     = 'manual',
             },
         },
-        window_on_create = function()
+        on_create = function()
             -- called once upon creation of the fzf main window
             -- can be used to add custom fzf-lua mappings, e.g:
             --   vim.api.nvim_buf_set_keymap(0, "t", "<C-j>", "<Down>",
@@ -243,16 +243,16 @@ require 'fzf-lua'.setup {
         },
         commits = {
             prompt  = 'Commits❯ ',
-            cmd     = "git log --pretty=oneline --abbrev-commit --color",
-            preview = "git show --pretty='%Cred%H%n%Cblue%an%n%Cgreen%s' --color {1}",
+            cmd     = "git log --pretty=format:'%C(yellow)%h%C(reset) %C(green)%ad%C(reset) %s' --date=short --abbrev-commit --color",
+            preview = "git show --pretty='%Cred%H%n%Cblue%an%n%Cgreen%s%n%Creset%ad' --date=short --color {1}",
             actions = {
                 ["default"] = actions.git_checkout,
             },
         },
         bcommits = {
             prompt  = 'BCommits❯ ',
-            cmd     = "git log --pretty=oneline --abbrev-commit --color",
-            preview = "git show --pretty='%Cred%H%n%Cblue%an%n%Cgreen%s' --color {1}",
+            cmd     = "git log --pretty=format:'%C(yellow)%h%C(reset) %C(green)%ad%C(reset) %s' --date=short --abbrev-commit --color",
+            preview = "git show --pretty='%Cred%H%n%Cblue%an%n%Cgreen%s%n%Creset%ad' --date=short --color {1}",
             actions = {
                 ["default"] = actions.git_buf_edit,
                 ["ctrl-v"]  = actions.git_buf_split,
@@ -291,7 +291,7 @@ require 'fzf-lua'.setup {
         -- executed command priority is 'cmd' (if exists)
         -- otherwise auto-detect prioritizes `rg` over `grep`
         -- default options are controlled by 'rg|grep_opts'
-        cmd            = "rg --vimgrep",
+        cmd            = "rg --ignore-file=.gitignore --column --line-number --no-heading --color=always --smart-case --max-columns=512",
         rg_opts        = "--ignore-file=.gitignore --column --line-number --no-heading --color=always --smart-case --max-columns=512",
         grep_opts      = "--binary-files=without-match --line-number --recursive --color=auto --perl-regexp",
         -- 'live_grep_glob' options:

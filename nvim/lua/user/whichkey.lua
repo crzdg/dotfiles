@@ -88,6 +88,7 @@ local mappings = {
     ["b"] = { "<cmd>FzfLua buffers<cr>", "Find buffer" },
     ["f"] = { "<cmd>FzfLua git_files<cr>", "Find files" },
     ["F"] = { "<cmd>FzfLua live_grep<cr>", "Find text" },
+    ["G"] = { "<cmd>FzfLua grep<cr>", "Grep" },
     ["t"] = { "<cmd>FzfLua files<cr>", "Find files" },
     g = {
         name = "Git",

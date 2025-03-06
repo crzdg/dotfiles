@@ -81,6 +81,7 @@ case $HOST in
     docker) source $ZSH_CONFIG_DIR/machines/docker.zsh;;
     zapdos) source $ZSH_CONFIG_DIR/machines/zapdos.zsh;;
     jd-r90vkez1) source $ZSH_CONFIG_DIR/machines/jaywalker.zsh;;
+    jd-ws-01) source $ZSH_CONFIG_DIR/machines/jaywalker.zsh;;
     *) source $ZSH_CONFIG_DIR/machines/default.zsh;;
 esac
 
