@@ -69,13 +69,38 @@ return packer.startup(function(use)
     -- My plugins here
     use "wbthomason/packer.nvim" -- Have packer manage itself
     use "nvim-lua/popup.nvim"    -- An implementation of the Popup API from vim in Neovim
-    use "nvim-lua/plenary.nvim"  -- Useful lua functions used ny lots of plugins
+    use { "nvim-lua/plenary.nvim", branch="master" }
     use "lewis6991/impatient.nvim"
     use "moll/vim-bbye"
     use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
     use "nvim-tree/nvim-web-devicons"
     use "nvim-tree/nvim-tree.lua"
     use "ThePrimeagen/harpoon"
+    use "stevearc/dressing.nvim"
+    use "MunifTanjim/nui.nvim"
+    use "MeanderingProgrammer/render-markdown.nvim"
+    use 'HakonHarnes/img-clip.nvim'
+    use {
+      'yetone/avante.nvim',
+      branch = 'main',
+      run = 'make',
+      config = function()
+        local config = require("user.avante")
+        require('avante').setup(config)
+      end
+    }
+
+    use ({
+        "olimorris/codecompanion.nvim",
+        config = function()
+            local config = require("user.codecompanion")
+            require('codecompanion').setup(config)
+        end,
+        requires = {
+            "nivim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        }
+    })
 
     -- Workspace handling
     use { "folke/which-key.nvim", tag = "v2.1.0" }
