@@ -27,6 +27,8 @@ export FZF_DEFAULT_OPTS="
 --border bold \
 --info=inline \
 --prompt '> ' \
+--pointer '> ' \
+--marker 'X ' \
 ${FZF_THEME}
 "
 
