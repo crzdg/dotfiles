@@ -49,10 +49,10 @@ vim.cmd [[
     autocmd BufWritePre *.rs lua vim.lsp.buf.format()
   augroup end
 
-  " augroup _ipynb
-  "   autocmd!
-  "   autocmd BufNewFile,BufReadPre *.ipynb :setl filetype=jupyter-notebook
-  " augroup end
+  augroup _js_ts
+    autocmd!
+    autocmd BufWritePre *.js,*.ts,*.vue lua vim.lsp.buf.format()
+  augroup end
 ]]
 
 local function open_nvim_tree(data)
@@ -67,5 +67,27 @@ local function open_nvim_tree(data)
     -- open the tree, find the file but don't focus it
     require("nvim-tree.api").tree.toggle({ focus = false, find_file = true, })
 end
+
+-- Set indentation per filetype
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "typescript", "typescriptreact", "javascript", "javascriptreact", "json", "yaml", "vue" },
+  callback = function()
+    vim.opt_local.tabstop = 2
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.softtabstop = 2
+    vim.opt_local.expandtab = true
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "python" },
+  callback = function()
+    vim.opt_local.tabstop = 4
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.softtabstop = 4
+    vim.opt_local.expandtab = true
+  end,
+})
+
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })

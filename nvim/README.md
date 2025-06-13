@@ -74,7 +74,7 @@ cd ../..
 ./3rd/luamake/luamake rebuild
 ```
 
-### Install vscode-langservers-extraced (vscode-json-languageserver)
+### Install vscode-langservers-extrated (vscode-json-languageserver)
 ```bash
 npm i -g vscode-langservers-extracted
 ```
@@ -102,6 +102,21 @@ ln -sf /home/rb/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/rust-anal
 ```
 
 Otherwise, build binaries manually.
+
+### Install typescript-language-server (ts_ls)
+
+```bash
+npm install -g typescript-language-server typescript
+```
+
+### Instal volar (vue-language-server)
+
+```bash
+npm install -g @vue/language-server
+```
+
+
+
 
 ## Optional: dependencies for peek (markdown preview)
 ```bash
