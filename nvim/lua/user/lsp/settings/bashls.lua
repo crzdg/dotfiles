@@ -1,1 +1,1 @@
-require("lspconfig").bashls.setup {}
+vim.lsp.config("bashls", {})
