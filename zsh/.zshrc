@@ -122,13 +122,12 @@ export NVM_DIR="$HOME/.nvm"
 # Source fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-
 alias luamake="/home/reto_barmettler/dev/lua-language-server/3rd/luamake/luamake"
 
 # fnm
 FNM_PATH="/home/rb/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
-  export PATH="/home/rb/.local/share/fnm:$PATH"
+  export PATH="$FNM_PATH:$PATH"
   eval "`fnm env`"
 fi
 

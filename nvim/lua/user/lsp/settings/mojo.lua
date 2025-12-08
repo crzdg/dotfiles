@@ -1,1 +1,1 @@
-require("lspconfig").mojo.setup {}
+vim.lsp.config("mojo", {})
