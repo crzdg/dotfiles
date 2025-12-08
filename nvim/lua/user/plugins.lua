@@ -155,8 +155,10 @@ return packer.startup(function(use)
 
     -- Treesitter
     use "JoosepAlviste/nvim-ts-context-commentstring"
-    use "yioneko/nvim-yati"
-    use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+    -- use "yioneko/nvim-yati"
+    use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", branch = "master" }
+    -- use { "nvim-treesitter/nvim-treesitter", branch="master"}
+
 
     -- Git
     use "lewis6991/gitsigns.nvim"

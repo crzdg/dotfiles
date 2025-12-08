@@ -279,11 +279,6 @@ _G.packer_plugins = {
     path = "/home/rb/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
-  ["nvim-yati"] = {
-    loaded = true,
-    path = "/home/rb/.local/share/nvim/site/pack/packer/start/nvim-yati",
-    url = "https://github.com/yioneko/nvim-yati"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/rb/.local/share/nvim/site/pack/packer/start/packer.nvim",

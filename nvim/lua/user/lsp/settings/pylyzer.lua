@@ -1,1 +1,1 @@
-require 'lspconfig'.pylyzer.setup {}
+vim.lsp.config("pylyzer", {})
