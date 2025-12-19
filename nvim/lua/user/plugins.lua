@@ -67,7 +67,7 @@ packer.init {
 -- Install your plugins here
 return packer.startup(function(use)
     -- My plugins here
-    use "wbthomason/packer.nvim" -- Have packer manage itself
+    use "crzdg/packer.nvim" -- Have packer manage itself
     use "nvim-lua/popup.nvim"    -- An implementation of the Popup API from vim in Neovim
     use { "nvim-lua/plenary.nvim", branch="master" }
     use "lewis6991/impatient.nvim"
@@ -176,7 +176,7 @@ return packer.startup(function(use)
     use({ 'toppair/peek.nvim', run = 'deno task --quiet build:fast' })
 
     -- Jupyter Notebbok
-    use "hkupty/iron.nvim"
+    use "Vigemus/iron.nvim"
     use "kana/vim-textobj-user"
     use "kana/vim-textobj-line"
     use "GCBallesteros/vim-textobj-hydrogen"
