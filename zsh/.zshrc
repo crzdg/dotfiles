@@ -82,6 +82,7 @@ case $HOST in
     zapdos) source $ZSH_CONFIG_DIR/machines/zapdos.zsh;;
     jd-r90vkez1) source $ZSH_CONFIG_DIR/machines/jaywalker.zsh;;
     jd-ws-01) source $ZSH_CONFIG_DIR/machines/jaywalker.zsh;;
+    W720334) source $ZSH_CONFIG_DIR/machines/pilatus.zsh;;
     *) source $ZSH_CONFIG_DIR/machines/default.zsh;;
 esac
 
@@ -121,7 +122,15 @@ export NVM_DIR="$HOME/.nvm"
 # Source fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# STARTUP
-[ -z $TMUX ] && { tmux attach -t main || tmux new-session -s main ; }
 
 alias luamake="/home/reto_barmettler/dev/lua-language-server/3rd/luamake/luamake"
+
+# fnm
+FNM_PATH="/home/rb/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/rb/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
+
+# STARTUP
+[ -z $TMUX ] && { tmux attach -t main || tmux new-session -s main ; }
