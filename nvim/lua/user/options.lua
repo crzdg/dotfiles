@@ -53,18 +53,21 @@ vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 
 
-vim.g.clipboard = {
-    name = "xclip-win32yank-wsl",
-    copy = {
-            ["+"] = "xclip -i --crlf",
-            ["*"] = "xclip -i --crlf"
-    },
-    paste = {
-            ["+"] = "xclip -o --lf",
-            ["*"] = "xclip -o --lf"
-    },
-    cache_enable = 0,
-}
+if os.getenv("WSL_DISTRO_NAME")
+then
+    vim.g.clipboard = {
+        name = "win32yank-wsl",
+        copy = {
+            ["+"] = "win32yank.exe -i --crlf",
+            ["*"] = "win32yank.exe -i --crlf"
+        },
+        paste = {
+            ["+"] = "win32yank.exe -o --lf",
+            ["*"] = "win32yank.exe -o --lf"
+        },
+        cache_enable = 0,
+    }
+end
 
 vim.g["python3_host_prog"] = "/home/rb/dev/python/venvs/nvim/bin/python3"
 vim.cmd [[
