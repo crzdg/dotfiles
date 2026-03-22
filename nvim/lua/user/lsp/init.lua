@@ -5,7 +5,6 @@ end
 
 -- [[ require("user.lsp.lsp-installer") ]]
 require("user.lsp.handlers").setup()
-
 require("user.lsp.settings.pylsp")
 require("user.lsp.settings.jsonls")
 require("user.lsp.settings.lua_ls")
@@ -14,6 +13,9 @@ require("user.lsp.settings.bashls")
 require("user.lsp.settings.mojo")
 require("user.lsp.settings.rust_analyzer")
 require("user.lsp.settings.vue_language_server")
+require("user.lsp.settings.clangd")
+require("user.lsp.settings.vtsls")
+require("user.lsp.settings.pylyzer")
 
 local null_ls = require('null-ls') -- or require('null-ls') if using old version
 
@@ -22,7 +24,6 @@ null_ls.setup({
     null_ls.builtins.formatting.prettier,
   }
 })
--- require("user.lsp.settings.pylyzer")
 
 --[[ capabilities = vim.lsp.protocol.make_client_capabilities() ]]
 --[[ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities) ]]

@@ -5,3 +5,4 @@ vim.lsp.config("volar", {
     client.server_capabilities.documentRangeFormattingProvider = false
   end,
 })
+vim.lsp.enable("volar")

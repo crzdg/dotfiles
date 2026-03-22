@@ -12,7 +12,9 @@ require("copilot").setup({
     },
     filetypes = {
         lua = true,
-        python = true
+        python = true,
+        yaml = true,
+        yml = true,
     },
 })
 -- copilot_cmp seems tp be broken

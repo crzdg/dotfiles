@@ -1,4 +1,5 @@
 # EDITOR
+
 export EDITOR=nvim
 export GIT_EDITOR="$EDITOR"
 export TERM="xterm-256color"
@@ -123,6 +124,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 alias luamake="/home/reto_barmettler/dev/lua-language-server/3rd/luamake/luamake"
+alias arcgispro-py3-solar-path="C:\Users\sumor\AppData\Local\ESRI\conda\envs\arcgispro-py3-solar"
+alias lla="ls -lah"
+source "$HOME/.cargo/env"
 
 # fnm
 FNM_PATH="/home/rb/.local/share/fnm"
@@ -130,6 +134,7 @@ if [ -d "$FNM_PATH" ]; then
   export PATH="$FNM_PATH:$PATH"
   eval "`fnm env`"
 fi
+
 
 # STARTUP
 [ -z $TMUX ] && { tmux attach -t main || tmux new-session -s main ; }

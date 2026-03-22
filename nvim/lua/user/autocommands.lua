@@ -51,7 +51,7 @@ vim.cmd [[
 
   augroup _js_ts
     autocmd!
-    autocmd BufWritePre *.js,*.ts,*.vue lua vim.lsp.buf.format()
+    autocmd BufWritePre *.js,*.ts,*.vue,*.tsx lua vim.lsp.buf.format()
   augroup end
 ]]
 

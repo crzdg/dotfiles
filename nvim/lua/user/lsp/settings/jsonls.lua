@@ -199,4 +199,4 @@ local opts = {
 local capabilities = require("user.lsp.handlers").capabilities
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 vim.lsp.config("jsonls", { capabilities = capabilities, settings = opts.settings, setup = opts.setup })
-
+vim.lsp.enable("jsonls")

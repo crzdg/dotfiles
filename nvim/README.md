@@ -109,10 +109,27 @@ Otherwise, build binaries manually.
 npm install -g typescript-language-server typescript
 ```
 
+### Install vtsls
+
+Lange server based on VSCode Plugin for a Typescript Language Server.
+Alternative to ts\_ls.
+
+```bash
+npm install -g @vtsls/language-server
+```
+
+
 ### Instal volar (vue-language-server)
 
 ```bash
 npm install -g @vue/language-server
+```
+
+### Install clangd (C++ Language Server)
+
+```bash
+sudo apt-get install clangd-12
+
 ```
 
 
